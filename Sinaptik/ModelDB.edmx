@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SinaptikModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdvKamp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="status" Type="nvarchar(max)" />
+          <Property Name="ohvat" Type="nvarchar(max)" />
+          <Property Name="pokaz" Type="nvarchar(max)" />
+          <Property Name="price" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CheckSys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoogleAct" Type="int" />
+          <Property Name="YaAct" Type="int" />
+          <Property Name="VKAct" Type="int" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="surname" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="phone" Type="nvarchar(max)" />
+          <Property Name="websait" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DashBoard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Day" Type="nvarchar(max)" />
+          <Property Name="PriceM" Type="nvarchar(max)" />
+          <Property Name="Click" Type="nvarchar(max)" />
+          <Property Name="SeePage" Type="nvarchar(max)" />
+          <Property Name="PriceZ" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idClients" Type="nvarchar(max)" />
+          <Property Name="idAdvComp" Type="nvarchar(max)" />
+          <Property Name="price" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Хранилище SinaptikModelContainer">
+          <EntitySet Name="AdvKamp" EntityType="Self.AdvKamp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CheckSys" EntityType="Self.CheckSys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DashBoard" EntityType="Self.DashBoard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pay" EntityType="Self.Pay" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SinaptikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdvKamp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ohvat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pokaz" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CheckSys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoogleAct" Type="Int32" />
+          <Property Name="YaAct" Type="Int32" />
+          <Property Name="VKAct" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="websait" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DashBoard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Day" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Click" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeePage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceZ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idClients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idAdvComp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="SinaptikEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdvKamp" EntityType="Self.AdvKamp" />
+          <EntitySet Name="CheckSys" EntityType="Self.CheckSys" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="DashBoard" EntityType="Self.DashBoard" />
+          <EntitySet Name="Pay" EntityType="Self.Pay" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SinaptikModelContainer" CdmEntityContainer="SinaptikEntities">
+          <EntitySetMapping Name="AdvKamp">
+            <EntityTypeMapping TypeName="SinaptikModel.AdvKamp">
+              <MappingFragment StoreEntitySet="AdvKamp">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ohvat" ColumnName="ohvat" />
+                <ScalarProperty Name="pokaz" ColumnName="pokaz" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CheckSys">
+            <EntityTypeMapping TypeName="SinaptikModel.CheckSys">
+              <MappingFragment StoreEntitySet="CheckSys">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="GoogleAct" ColumnName="GoogleAct" />
+                <ScalarProperty Name="YaAct" ColumnName="YaAct" />
+                <ScalarProperty Name="VKAct" ColumnName="VKAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="SinaptikModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="websait" ColumnName="websait" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DashBoard">
+            <EntityTypeMapping TypeName="SinaptikModel.DashBoard">
+              <MappingFragment StoreEntitySet="DashBoard">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="PriceM" ColumnName="PriceM" />
+                <ScalarProperty Name="Click" ColumnName="Click" />
+                <ScalarProperty Name="SeePage" ColumnName="SeePage" />
+                <ScalarProperty Name="PriceZ" ColumnName="PriceZ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pay">
+            <EntityTypeMapping TypeName="SinaptikModel.Pay">
+              <MappingFragment StoreEntitySet="Pay">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idClients" ColumnName="idClients" />
+                <ScalarProperty Name="idAdvComp" ColumnName="idAdvComp" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
