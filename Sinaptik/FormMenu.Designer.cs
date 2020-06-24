@@ -38,6 +38,7 @@
             this.labelby = new System.Windows.Forms.Label();
             this.labelver = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -64,9 +65,9 @@
             this.buttonClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClients.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonClients.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonClients.Location = new System.Drawing.Point(323, 211);
+            this.buttonClients.Location = new System.Drawing.Point(323, 205);
             this.buttonClients.Name = "buttonClients";
-            this.buttonClients.Size = new System.Drawing.Size(340, 45);
+            this.buttonClients.Size = new System.Drawing.Size(340, 50);
             this.buttonClients.TabIndex = 1;
             this.buttonClients.TabStop = false;
             this.buttonClients.Text = "Клиенты";
@@ -84,9 +85,9 @@
             this.buttonAdv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdv.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonAdv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonAdv.Location = new System.Drawing.Point(323, 264);
+            this.buttonAdv.Location = new System.Drawing.Point(323, 261);
             this.buttonAdv.Name = "buttonAdv";
-            this.buttonAdv.Size = new System.Drawing.Size(340, 45);
+            this.buttonAdv.Size = new System.Drawing.Size(340, 50);
             this.buttonAdv.TabIndex = 2;
             this.buttonAdv.TabStop = false;
             this.buttonAdv.Text = "Рекламные системы";
@@ -106,7 +107,7 @@
             this.buttonAdvCamp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.buttonAdvCamp.Location = new System.Drawing.Point(323, 317);
             this.buttonAdvCamp.Name = "buttonAdvCamp";
-            this.buttonAdvCamp.Size = new System.Drawing.Size(340, 45);
+            this.buttonAdvCamp.Size = new System.Drawing.Size(340, 50);
             this.buttonAdvCamp.TabIndex = 3;
             this.buttonAdvCamp.TabStop = false;
             this.buttonAdvCamp.Text = "Рекламные кампании";
@@ -124,9 +125,9 @@
             this.buttonPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPay.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonPay.Location = new System.Drawing.Point(323, 370);
+            this.buttonPay.Location = new System.Drawing.Point(323, 373);
             this.buttonPay.Name = "buttonPay";
-            this.buttonPay.Size = new System.Drawing.Size(166, 45);
+            this.buttonPay.Size = new System.Drawing.Size(166, 50);
             this.buttonPay.TabIndex = 4;
             this.buttonPay.TabStop = false;
             this.buttonPay.Text = "Бюджеты";
@@ -144,9 +145,9 @@
             this.buttonDayRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDayRes.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonDayRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonDayRes.Location = new System.Drawing.Point(497, 370);
+            this.buttonDayRes.Location = new System.Drawing.Point(497, 373);
             this.buttonDayRes.Name = "buttonDayRes";
-            this.buttonDayRes.Size = new System.Drawing.Size(166, 45);
+            this.buttonDayRes.Size = new System.Drawing.Size(166, 50);
             this.buttonDayRes.TabIndex = 5;
             this.buttonDayRes.TabStop = false;
             this.buttonDayRes.Text = "Статистика";
@@ -194,14 +195,35 @@
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonSettings.Location = new System.Drawing.Point(323, 423);
+            this.buttonSettings.Location = new System.Drawing.Point(323, 429);
             this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(340, 45);
+            this.buttonSettings.Size = new System.Drawing.Size(340, 50);
             this.buttonSettings.TabIndex = 6;
             this.buttonSettings.TabStop = false;
             this.buttonSettings.Text = "Настройки";
             this.buttonSettings.UseVisualStyleBackColor = false;
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DimGray;
+            this.button1.BackgroundImage = global::Sinaptik.Properties.Resources.rebut3;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 20F);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.button1.Location = new System.Drawing.Point(669, 429);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 50);
+            this.button1.TabIndex = 10;
+            this.button1.TabStop = false;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormMenu
             // 
@@ -209,6 +231,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelver);
             this.Controls.Add(this.labelby);
             this.Controls.Add(this.label2);
@@ -247,6 +270,7 @@
         private System.Windows.Forms.Label labelby;
         private System.Windows.Forms.Label labelver;
         private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Button button1;
     }
 }
 

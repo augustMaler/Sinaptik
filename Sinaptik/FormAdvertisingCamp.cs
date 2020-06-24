@@ -38,5 +38,11 @@ namespace Sinaptik
             this.Hide();
             Menu.Show();
         }
+        private void FormAdvertisingCamp_Load(object sender, EventArgs e)
+        {
+            if (AdvSys.Sys == 1) label2.Text = "Google";
+            if (AdvSys.Sys == 2) label2.Text = "Yandex";
+            if (AdvSys.Sys == 3) label2.Text = "VK";
+        }
     }
 }

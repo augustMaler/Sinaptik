@@ -51,6 +51,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonClient = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -97,7 +98,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 223);
+            this.listView1.Location = new System.Drawing.Point(12, 237);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(960, 267);
@@ -127,19 +128,19 @@
             // 
             this.email.Text = "Эл. почта";
             this.email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.email.Width = 175;
+            this.email.Width = 228;
             // 
             // phone
             // 
             this.phone.Text = "Номер";
             this.phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.phone.Width = 145;
+            this.phone.Width = 172;
             // 
             // namews
             // 
             this.namews.Text = "Название сайта";
             this.namews.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.namews.Width = 336;
+            this.namews.Width = 256;
             // 
             // button1
             // 
@@ -219,24 +220,25 @@
             this.textBox3.Location = new System.Drawing.Point(328, 139);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 36);
+            this.textBox3.Size = new System.Drawing.Size(211, 36);
             this.textBox3.TabIndex = 16;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(499, 139);
+            this.textBox4.Location = new System.Drawing.Point(545, 139);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(189, 36);
+            this.textBox4.Size = new System.Drawing.Size(172, 36);
             this.textBox4.TabIndex = 17;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(694, 139);
+            this.textBox5.Location = new System.Drawing.Point(723, 139);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(278, 36);
+            this.textBox5.Size = new System.Drawing.Size(249, 36);
             this.textBox5.TabIndex = 18;
             // 
             // label2
@@ -273,7 +275,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label5.Location = new System.Drawing.Point(495, 113);
+            this.label5.Location = new System.Drawing.Point(541, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 23);
             this.label5.TabIndex = 22;
@@ -283,7 +285,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label6.Location = new System.Drawing.Point(690, 113);
+            this.label6.Location = new System.Drawing.Point(719, 113);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 23);
             this.label6.TabIndex = 23;
@@ -298,12 +300,32 @@
             this.label7.Size = new System.Drawing.Size(0, 23);
             this.label7.TabIndex = 24;
             // 
+            // buttonClient
+            // 
+            this.buttonClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.buttonClient.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonClient.FlatAppearance.BorderSize = 2;
+            this.buttonClient.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.buttonClient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.buttonClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClient.Font = new System.Drawing.Font("Calibri", 16F);
+            this.buttonClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.buttonClient.Location = new System.Drawing.Point(619, 510);
+            this.buttonClient.Name = "buttonClient";
+            this.buttonClient.Size = new System.Drawing.Size(353, 39);
+            this.buttonClient.TabIndex = 25;
+            this.buttonClient.Text = "Перейти к рекламным системам";
+            this.buttonClient.UseVisualStyleBackColor = false;
+            this.buttonClient.Click += new System.EventHandler(this.buttonClient_Click);
+            // 
             // FormClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.buttonClient);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -363,5 +385,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonClient;
     }
 }

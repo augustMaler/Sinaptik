@@ -48,47 +48,37 @@ namespace Sinaptik
         }
         void button1_Click(object sender, EventArgs e)
         {
-            CheckSys check = new CheckSys();
-            if (check.GoogleAct == 1)
-            {
-                button1.Text = "Google Ads\n(включен)";
-                check.GoogleAct = 0;
-                Program.sinDB.SaveChanges();
-            }
-            else if (check.GoogleAct == 0)
-            {
-                button1.Text = "Google Ads\n(выключен)";
-                check.GoogleAct = 1;
-                Program.sinDB.SaveChanges();
-            }
+            AdvSys.Sys = 1;
+            Form AdvCamp = new FormAdvertisingCamp();
+            AdvCamp.StartPosition = FormStartPosition.Manual;
+            AdvCamp.Left = this.Left;
+            AdvCamp.Top = this.Top;
+            this.Hide();
+            AdvCamp.Show();
         }
         void button2_Click(object sender, EventArgs e)
         {
-            CheckSys check = new CheckSys();
-            if (check.YaAct == 1)
-            {
-                button2.Text = "Яндекс Директ\n(включен)";
-                check.YaAct = 0;
-            }
-            else if (check.YaAct == 0)
-            {
-                button2.Text = "Яндекс Директ\n(выключен)";
-                check.YaAct = 1;
-            }
+            AdvSys.Sys = 2;
+            Form AdvCamp = new FormAdvertisingCamp();
+            AdvCamp.StartPosition = FormStartPosition.Manual;
+            AdvCamp.Left = this.Left;
+            AdvCamp.Top = this.Top;
+            this.Hide();
+            AdvCamp.Show();
         }
         void button3_Click(object sender, EventArgs e)
         {
-            CheckSys check = new CheckSys();
-            if (check.VKAct == 1)
-            {
-                button3.Text = "Вконтакте Таргетинговая реклама\n(включен)";
-                check.VKAct = 0;
-            }
-            else if (check.VKAct == 0)
-            {
-                button3.Text = "Вконтакте Таргетинговая реклама\n(выключен)";
-                check.VKAct = 1;
-            }
+            AdvSys.Sys = 3;
+            Form AdvCamp = new FormAdvertisingCamp();
+            AdvCamp.StartPosition = FormStartPosition.Manual;
+            AdvCamp.Left = this.Left;
+            AdvCamp.Top = this.Top;
+            this.Hide();
+            AdvCamp.Show();
+        }
+        private void FormAdvertising_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,25 +34,6 @@ namespace Sinaptik
             if (Coloring.Back == 3) this.BackColor = Color.White;
             ShowClient();
         }
-
-        void FormClients_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Back();
-        }
-
-        void buttonSettings_Click(object sender, EventArgs e)
-        {
-            Back();
-        }
-        public void Back()
-        {
-            Form Menu = Application.OpenForms[0];
-            Menu.StartPosition = FormStartPosition.Manual;
-            Menu.Left = this.Left;
-            Menu.Top = this.Top;
-            this.Hide();
-            Menu.Show();
-        }
         void button3_Click(object sender, EventArgs e)
         {
             Clients client = new Clients();
@@ -73,12 +54,10 @@ namespace Sinaptik
                 label7.Text = "Вы не правильно указали почту!";
             }
         }
-
         void textBox3_TextChanged(object sender, EventArgs e)
         {
             label7.Text = "";
         }
-
         void button2_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 1)
@@ -137,6 +116,40 @@ namespace Sinaptik
                 textBox4.Text = "";
                 textBox5.Text = "";
             }
+        }
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char num = e.KeyChar;
+            if (!Char.IsDigit(num) && num != 8 || num == 127)
+            {
+                e.Handled = true;
+            }
+        }
+        void FormClients_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Back();
+        }
+        void buttonSettings_Click(object sender, EventArgs e)
+        {
+            Back();
+        }
+        public void Back()
+        {
+            Form Menu = Application.OpenForms[0];
+            Menu.StartPosition = FormStartPosition.Manual;
+            Menu.Left = this.Left;
+            Menu.Top = this.Top;
+            this.Hide();
+            Menu.Show();
+        }
+        private void buttonClient_Click(object sender, EventArgs e)
+        {
+            Form Adv = new FormAdvertising();
+            Adv.StartPosition = FormStartPosition.Manual;
+            Adv.Left = this.Left;
+            Adv.Top = this.Top;
+            this.Hide();
+            Adv.Show();
         }
     }
 }

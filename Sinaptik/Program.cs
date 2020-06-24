@@ -30,4 +30,8 @@ namespace Sinaptik
         public static int OnOff { get; set; }
         public static int Name { get; set; }
     }
+    static class AdvSys
+    {
+        public static int Sys { get; set; }
+    }
 }

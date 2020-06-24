@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -62,12 +63,24 @@
             this.buttonSettings.UseVisualStyleBackColor = false;
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Calibri", 25F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label2.Location = new System.Drawing.Point(318, 185);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(300, 142);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormAdvertisingCamp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 14.25F);
@@ -82,6 +95,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Рекламные кампании";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdvertisingCamp_FormClosed);
+            this.Load += new System.EventHandler(this.FormAdvertisingCamp_Load);
             this.ResumeLayout(false);
 
         }
@@ -90,5 +104,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -15,7 +15,6 @@ namespace Sinaptik
         public FormMenu()
         {
             InitializeComponent();
-            Start();
         }
         void buttonClients_Click(object sender, EventArgs e)
         {
@@ -65,8 +64,8 @@ namespace Sinaptik
             Settings.Show();
             this.Hide();
         }
-        public void Start()
-        { 
+        private void button1_Click(object sender, EventArgs e)
+        {
             if (Author.Name == 1) labelby.Text = "Разработано ООО \"Синаптик\"";
             if (Author.Name == 2) labelby.Text = "Разработано Страшко Артемием";
             if (Coloring.Back == 1) this.BackColor = Color.Black;
