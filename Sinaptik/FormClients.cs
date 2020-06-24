@@ -82,6 +82,11 @@ namespace Sinaptik
                     Program.sinDB.Clients.Remove(client);
                     Program.sinDB.SaveChanges();
                     ShowClient();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
                 }
                 else
                 {

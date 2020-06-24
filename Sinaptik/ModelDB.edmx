@@ -5,25 +5,26 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище SinaptikModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AdvKamp">
+        <EntityType Name="AdvertisingСompany">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar(max)" />
-          <Property Name="status" Type="nvarchar(max)" />
-          <Property Name="ohvat" Type="nvarchar(max)" />
-          <Property Name="pokaz" Type="nvarchar(max)" />
-          <Property Name="price" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClients" Type="int" />
+          <Property Name="IdType" Type="int" />
+          <Property Name="IdStatus" Type="int" />
+          <Property Name="IdStrategy" Type="int" />
+          <Property Name="IdBudget" Type="int" />
+          <Property Name="IdPlace" Type="int" />
+          <Property Name="Consumption" Type="int" />
         </EntityType>
-        <EntityType Name="CheckSys">
+        <EntityType Name="BudgetAdv">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GoogleAct" Type="int" />
-          <Property Name="YaAct" Type="int" />
-          <Property Name="VKAct" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="Budget" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -36,155 +37,425 @@
           <Property Name="phone" Type="nvarchar(max)" />
           <Property Name="websait" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="DashBoard">
+        <EntityType Name="PlaceForAdv">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Day" Type="nvarchar(max)" />
-          <Property Name="PriceM" Type="nvarchar(max)" />
-          <Property Name="Click" Type="nvarchar(max)" />
-          <Property Name="SeePage" Type="nvarchar(max)" />
-          <Property Name="PriceZ" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceForAdv" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Pay">
+        <EntityType Name="StatusAdv">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idClients" Type="nvarchar(max)" />
-          <Property Name="idAdvComp" Type="nvarchar(max)" />
-          <Property Name="price" Type="int" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="StrategyAdv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Strategy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TypeAdv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_AdvertisingСompany_BudgetAdv">
+          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BudgetAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdBudget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_PlaceForAdv">
+          <End Role="PlaceForAdv" Type="Self.PlaceForAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceForAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdPlace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_StatusAdv">
+          <End Role="StatusAdv" Type="Self.StatusAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_StrategyAdv">
+          <End Role="StrategyAdv" Type="Self.StrategyAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StrategyAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdStrategy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_TypeAdv">
+          <End Role="TypeAdv" Type="Self.TypeAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BudgetAdv_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BudgetAdv">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище SinaptikModelContainer">
-          <EntitySet Name="AdvKamp" EntityType="Self.AdvKamp" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CheckSys" EntityType="Self.CheckSys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdvertisingСompany" EntityType="Self.AdvertisingСompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BudgetAdv" EntityType="Self.BudgetAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DashBoard" EntityType="Self.DashBoard" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pay" EntityType="Self.Pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceForAdv" EntityType="Self.PlaceForAdv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusAdv" EntityType="Self.StatusAdv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StrategyAdv" EntityType="Self.StrategyAdv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeAdv" EntityType="Self.TypeAdv" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdvertisingСompany_BudgetAdv" Association="Self.FK_AdvertisingСompany_BudgetAdv">
+            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_Clients" Association="Self.FK_AdvertisingСompany_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_PlaceForAdv" Association="Self.FK_AdvertisingСompany_PlaceForAdv">
+            <End Role="PlaceForAdv" EntitySet="PlaceForAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_StatusAdv" Association="Self.FK_AdvertisingСompany_StatusAdv">
+            <End Role="StatusAdv" EntitySet="StatusAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_StrategyAdv" Association="Self.FK_AdvertisingСompany_StrategyAdv">
+            <End Role="StrategyAdv" EntitySet="StrategyAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_TypeAdv" Association="Self.FK_AdvertisingСompany_TypeAdv">
+            <End Role="TypeAdv" EntitySet="TypeAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BudgetAdv_Clients" Association="Self.FK_BudgetAdv_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SinaptikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AdvKamp">
+        <EntityType Name="AdvertisingСompany">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ohvat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="pokaz" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClients" Type="Int32" />
+          <Property Name="IdType" Type="Int32" />
+          <Property Name="IdStatus" Type="Int32" />
+          <Property Name="IdStrategy" Type="Int32" />
+          <Property Name="IdBudget" Type="Int32" />
+          <Property Name="IdPlace" Type="Int32" />
+          <Property Name="Consumption" Type="Int32" />
+          <NavigationProperty Name="BudgetAdv" Relationship="Self.FK_AdvertisingСompany_BudgetAdv" FromRole="AdvertisingСompany" ToRole="BudgetAdv" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="AdvertisingСompany" ToRole="Clients" />
+          <NavigationProperty Name="PlaceForAdv" Relationship="Self.FK_AdvertisingСompany_PlaceForAdv" FromRole="AdvertisingСompany" ToRole="PlaceForAdv" />
+          <NavigationProperty Name="StatusAdv" Relationship="Self.FK_AdvertisingСompany_StatusAdv" FromRole="AdvertisingСompany" ToRole="StatusAdv" />
+          <NavigationProperty Name="StrategyAdv" Relationship="Self.FK_AdvertisingСompany_StrategyAdv" FromRole="AdvertisingСompany" ToRole="StrategyAdv" />
+          <NavigationProperty Name="TypeAdv" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="AdvertisingСompany" ToRole="TypeAdv" />
         </EntityType>
-        <EntityType Name="CheckSys">
+        <EntityType Name="BudgetAdv">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoogleAct" Type="Int32" />
-          <Property Name="YaAct" Type="Int32" />
-          <Property Name="VKAct" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int32" />
+          <Property Name="Budget" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_BudgetAdv" FromRole="BudgetAdv" ToRole="AdvertisingСompany" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_BudgetAdv_Clients" FromRole="BudgetAdv" ToRole="Clients" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="websait" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Websait" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="Clients" ToRole="AdvertisingСompany" />
+          <NavigationProperty Name="BudgetAdv" Relationship="Self.FK_BudgetAdv_Clients" FromRole="Clients" ToRole="BudgetAdv" />
         </EntityType>
-        <EntityType Name="DashBoard">
+        <EntityType Name="PlaceForAdv">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Day" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PriceM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Click" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SeePage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PriceZ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceForAdv1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_PlaceForAdv" FromRole="PlaceForAdv" ToRole="AdvertisingСompany" />
         </EntityType>
-        <EntityType Name="Pay">
+        <EntityType Name="StatusAdv">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idClients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="idAdvComp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_StatusAdv" FromRole="StatusAdv" ToRole="AdvertisingСompany" />
         </EntityType>
-        <EntityContainer Name="SinaptikEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdvKamp" EntityType="Self.AdvKamp" />
-          <EntitySet Name="CheckSys" EntityType="Self.CheckSys" />
+        <EntityType Name="StrategyAdv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Strategy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_StrategyAdv" FromRole="StrategyAdv" ToRole="AdvertisingСompany" />
+        </EntityType>
+        <EntityType Name="TypeAdv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="TypeAdv" ToRole="AdvertisingСompany" />
+        </EntityType>
+        <Association Name="FK_AdvertisingСompany_BudgetAdv">
+          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BudgetAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdBudget" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_PlaceForAdv">
+          <End Role="PlaceForAdv" Type="Self.PlaceForAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceForAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdPlace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_StatusAdv">
+          <End Role="StatusAdv" Type="Self.StatusAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_StrategyAdv">
+          <End Role="StrategyAdv" Type="Self.StrategyAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StrategyAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdStrategy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvertisingСompany_TypeAdv">
+          <End Role="TypeAdv" Type="Self.TypeAdv" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAdv">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BudgetAdv_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BudgetAdv">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SinaptikEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdvertisingСompany" EntityType="Self.AdvertisingСompany" />
+          <EntitySet Name="BudgetAdv" EntityType="Self.BudgetAdv" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
-          <EntitySet Name="DashBoard" EntityType="Self.DashBoard" />
-          <EntitySet Name="Pay" EntityType="Self.Pay" />
+          <EntitySet Name="PlaceForAdv" EntityType="Self.PlaceForAdv" />
+          <EntitySet Name="StatusAdv" EntityType="Self.StatusAdv" />
+          <EntitySet Name="StrategyAdv" EntityType="Self.StrategyAdv" />
+          <EntitySet Name="TypeAdv" EntityType="Self.TypeAdv" />
+          <AssociationSet Name="FK_AdvertisingСompany_BudgetAdv" Association="Self.FK_AdvertisingСompany_BudgetAdv">
+            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_Clients" Association="Self.FK_AdvertisingСompany_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_PlaceForAdv" Association="Self.FK_AdvertisingСompany_PlaceForAdv">
+            <End Role="PlaceForAdv" EntitySet="PlaceForAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_StatusAdv" Association="Self.FK_AdvertisingСompany_StatusAdv">
+            <End Role="StatusAdv" EntitySet="StatusAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_StrategyAdv" Association="Self.FK_AdvertisingСompany_StrategyAdv">
+            <End Role="StrategyAdv" EntitySet="StrategyAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvertisingСompany_TypeAdv" Association="Self.FK_AdvertisingСompany_TypeAdv">
+            <End Role="TypeAdv" EntitySet="TypeAdv" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BudgetAdv_Clients" Association="Self.FK_BudgetAdv_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SinaptikModelContainer" CdmEntityContainer="SinaptikEntities">
-          <EntitySetMapping Name="AdvKamp">
-            <EntityTypeMapping TypeName="SinaptikModel.AdvKamp">
-              <MappingFragment StoreEntitySet="AdvKamp">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="ohvat" ColumnName="ohvat" />
-                <ScalarProperty Name="pokaz" ColumnName="pokaz" />
-                <ScalarProperty Name="price" ColumnName="price" />
+        <EntityContainerMapping StorageEntityContainer="Хранилище SinaptikModelContainer" CdmEntityContainer="SinaptikEntities2">
+          <EntitySetMapping Name="AdvertisingСompany">
+            <EntityTypeMapping TypeName="SinaptikModel.AdvertisingСompany">
+              <MappingFragment StoreEntitySet="AdvertisingСompany">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdClients" ColumnName="IdClients" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdStrategy" ColumnName="IdStrategy" />
+                <ScalarProperty Name="IdBudget" ColumnName="IdBudget" />
+                <ScalarProperty Name="IdPlace" ColumnName="IdPlace" />
+                <ScalarProperty Name="Consumption" ColumnName="Consumption" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CheckSys">
-            <EntityTypeMapping TypeName="SinaptikModel.CheckSys">
-              <MappingFragment StoreEntitySet="CheckSys">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="GoogleAct" ColumnName="GoogleAct" />
-                <ScalarProperty Name="YaAct" ColumnName="YaAct" />
-                <ScalarProperty Name="VKAct" ColumnName="VKAct" />
+          <EntitySetMapping Name="BudgetAdv">
+            <EntityTypeMapping TypeName="SinaptikModel.BudgetAdv">
+              <MappingFragment StoreEntitySet="BudgetAdv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="SinaptikModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="surname" ColumnName="surname" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="websait" ColumnName="websait" />
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Surname" ColumnName="surname" />
+                <ScalarProperty Name="Email" ColumnName="email" />
+                <ScalarProperty Name="Phone" ColumnName="phone" />
+                <ScalarProperty Name="Websait" ColumnName="websait" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DashBoard">
-            <EntityTypeMapping TypeName="SinaptikModel.DashBoard">
-              <MappingFragment StoreEntitySet="DashBoard">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Day" ColumnName="Day" />
-                <ScalarProperty Name="PriceM" ColumnName="PriceM" />
-                <ScalarProperty Name="Click" ColumnName="Click" />
-                <ScalarProperty Name="SeePage" ColumnName="SeePage" />
-                <ScalarProperty Name="PriceZ" ColumnName="PriceZ" />
+          <EntitySetMapping Name="PlaceForAdv">
+            <EntityTypeMapping TypeName="SinaptikModel.PlaceForAdv">
+              <MappingFragment StoreEntitySet="PlaceForAdv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlaceForAdv1" ColumnName="PlaceForAdv" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pay">
-            <EntityTypeMapping TypeName="SinaptikModel.Pay">
-              <MappingFragment StoreEntitySet="Pay">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idClients" ColumnName="idClients" />
-                <ScalarProperty Name="idAdvComp" ColumnName="idAdvComp" />
-                <ScalarProperty Name="price" ColumnName="price" />
+          <EntitySetMapping Name="StatusAdv">
+            <EntityTypeMapping TypeName="SinaptikModel.StatusAdv">
+              <MappingFragment StoreEntitySet="StatusAdv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StrategyAdv">
+            <EntityTypeMapping TypeName="SinaptikModel.StrategyAdv">
+              <MappingFragment StoreEntitySet="StrategyAdv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeAdv">
+            <EntityTypeMapping TypeName="SinaptikModel.TypeAdv">
+              <MappingFragment StoreEntitySet="TypeAdv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

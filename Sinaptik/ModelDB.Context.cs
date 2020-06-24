@@ -13,10 +13,10 @@ namespace Sinaptik
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SinaptikEntities : DbContext
+    public partial class SinaptikEntities2 : DbContext
     {
-        public SinaptikEntities()
-            : base("name=SinaptikEntities")
+        public SinaptikEntities2()
+            : base("name=SinaptikEntities2")
         {
         }
     
@@ -25,10 +25,12 @@ namespace Sinaptik
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AdvKamp> AdvKamp { get; set; }
-        public virtual DbSet<CheckSys> CheckSys { get; set; }
+        public virtual DbSet<AdvertisingСompany> AdvertisingСompany { get; set; }
+        public virtual DbSet<BudgetAdv> BudgetAdv { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }
-        public virtual DbSet<DashBoard> DashBoard { get; set; }
-        public virtual DbSet<Pay> Pay { get; set; }
+        public virtual DbSet<PlaceForAdv> PlaceForAdv { get; set; }
+        public virtual DbSet<StatusAdv> StatusAdv { get; set; }
+        public virtual DbSet<StrategyAdv> StrategyAdv { get; set; }
+        public virtual DbSet<TypeAdv> TypeAdv { get; set; }
     }
 }

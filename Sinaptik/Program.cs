@@ -8,7 +8,7 @@ namespace Sinaptik
 {
     static class Program
     {
-        public static SinaptikEntities sinDB = new SinaptikEntities();
+        public static SinaptikEntities2 sinDB = new SinaptikEntities2();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -33,5 +33,10 @@ namespace Sinaptik
     static class AdvSys
     {
         public static int Sys { get; set; }
+        public static int Google { get; set; }
+        public static int Yandex { get; set; }
+        public static int VK { get; set; }
+
     }
+
 }

@@ -12,13 +12,18 @@ namespace Sinaptik
     using System;
     using System.Collections.Generic;
     
-    public partial class AdvKamp
+    public partial class StatusAdv
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string status { get; set; }
-        public string ohvat { get; set; }
-        public string pokaz { get; set; }
-        public string price { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public StatusAdv()
+        {
+            this.AdvertisingСompany = new HashSet<AdvertisingСompany>();
+        }
+    
+        public int Id { get; set; }
+        public string Status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AdvertisingСompany> AdvertisingСompany { get; set; }
     }
 }

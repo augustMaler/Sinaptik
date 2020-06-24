@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvKamp.cs">
+    <Compile Include="AdvertisingСompany.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Authorization.cs">
@@ -64,13 +64,10 @@
     <Compile Include="Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckSys.cs">
+    <Compile Include="BudgetAdv.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Clients.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DashBoard.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="FormAdvertising.cs">
@@ -130,11 +127,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Pay.cs">
+    <Compile Include="PlaceForAdv.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusAdv.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StrategyAdv.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeAdv.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +200,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Stat.png" />
+    <None Include="Resources\rebut.png" />
+    <None Include="rebut.png" />
+    <None Include="Properties\rebut.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDB.edmx</DependentUpon>
@@ -204,10 +216,6 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\Stat.png" />
-    <None Include="Resources\rebut.png" />
-    <None Include="rebut.png" />
-    <None Include="Properties\rebut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,13 +12,20 @@ namespace Sinaptik
     using System;
     using System.Collections.Generic;
     
-    public partial class DashBoard
+    public partial class BudgetAdv
     {
-        public int id { get; set; }
-        public string Day { get; set; }
-        public string PriceM { get; set; }
-        public string Click { get; set; }
-        public string SeePage { get; set; }
-        public string PriceZ { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BudgetAdv()
+        {
+            this.AdvertisingСompany = new HashSet<AdvertisingСompany>();
+        }
+    
+        public int Id { get; set; }
+        public Nullable<int> IdUser { get; set; }
+        public string Budget { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AdvertisingСompany> AdvertisingСompany { get; set; }
+        public virtual Clients Clients { get; set; }
     }
 }

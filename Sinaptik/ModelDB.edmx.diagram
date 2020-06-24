@@ -4,12 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e089f6de4ac46508fed32893f367705" Name="Diagram1">
-        <EntityTypeShape EntityType="SinaptikModel.AdvKamp" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SinaptikModel.CheckSys" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SinaptikModel.Clients" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SinaptikModel.DashBoard" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SinaptikModel.Pay" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="e29186a9d392499899ea09f4167fd648" Name="Diagram1">
+        <EntityTypeShape EntityType="SinaptikModel.AdvertisingСompany" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinaptikModel.BudgetAdv" Width="1.5" PointX="2.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinaptikModel.Clients" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinaptikModel.PlaceForAdv" Width="1.5" PointX="4.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinaptikModel.StatusAdv" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinaptikModel.StrategyAdv" Width="1.5" PointX="4.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinaptikModel.TypeAdv" Width="1.5" PointX="7.125" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="SinaptikModel.FK_AdvertisingСompany_BudgetAdv" ManuallyRouted="false" />
+        <AssociationConnector Association="SinaptikModel.FK_AdvertisingСompany_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="SinaptikModel.FK_AdvertisingСompany_PlaceForAdv" ManuallyRouted="false" />
+        <AssociationConnector Association="SinaptikModel.FK_AdvertisingСompany_StatusAdv" ManuallyRouted="false" />
+        <AssociationConnector Association="SinaptikModel.FK_AdvertisingСompany_StrategyAdv" ManuallyRouted="false" />
+        <AssociationConnector Association="SinaptikModel.FK_AdvertisingСompany_TypeAdv" ManuallyRouted="false" />
+        <AssociationConnector Association="SinaptikModel.FK_BudgetAdv_Clients" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
