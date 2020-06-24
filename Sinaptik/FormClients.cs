@@ -19,8 +19,8 @@ namespace Sinaptik
             {
                 ListViewItem item = new ListViewItem(new string[]
                     {
-                        clients.id.ToString(), clients.name, clients.surname,
-                        clients.email, clients.phone, clients.websait
+                        clients.Id.ToString(), clients.Name, clients.Surname,
+                        clients.Email, clients.Phone, clients.Websait
                     });
                 item.Tag = clients;
                 listView1.Items.Add(item);
@@ -37,14 +37,14 @@ namespace Sinaptik
         void button3_Click(object sender, EventArgs e)
         {
             Clients client = new Clients();
-            client.name = textBox1.Text;
-            client.surname = textBox2.Text;
-            client.email = textBox3.Text;
-            client.phone = textBox4.Text;
-            client.websait = textBox5.Text;
+            client.Name = textBox1.Text;
+            client.Surname = textBox2.Text;
+            client.Email = textBox3.Text;
+            client.Phone = textBox4.Text;
+            client.Websait = textBox5.Text;
             if (textBox3.Text.Contains("@") == true && textBox3.Text.Contains(".") == true)
             {
-                client.email = textBox3.Text;
+                client.Email = textBox3.Text;
                 Program.sinDB.Clients.Add(client);
                 Program.sinDB.SaveChanges();
                 ShowClient();
@@ -63,11 +63,11 @@ namespace Sinaptik
             if (listView1.SelectedItems.Count == 1)
             {
                 Clients client = listView1.SelectedItems[0].Tag as Clients;
-                client.name = textBox1.Text;
-                client.surname = textBox2.Text;
-                client.email = textBox3.Text;
-                client.phone = textBox4.Text;
-                client.websait = textBox5.Text;
+                client.Name = textBox1.Text;
+                client.Surname = textBox2.Text;
+                client.Email = textBox3.Text;
+                client.Phone = textBox4.Text;
+                client.Websait = textBox5.Text;
                 Program.sinDB.SaveChanges();
                 ShowClient();
             }
@@ -107,11 +107,11 @@ namespace Sinaptik
             if (listView1.SelectedItems.Count == 1)
             {
                 Clients client = listView1.SelectedItems[0].Tag as Clients;
-                textBox1.Text = client.name;
-                textBox2.Text = client.surname;
-                textBox3.Text = client.email;
-                textBox4.Text = client.phone;
-                textBox5.Text = client.websait;
+                textBox1.Text = client.Name;
+                textBox2.Text = client.Surname;
+                textBox3.Text = client.Email;
+                textBox4.Text = client.Phone;
+                textBox5.Text = client.Websait;
             }
             else
             {

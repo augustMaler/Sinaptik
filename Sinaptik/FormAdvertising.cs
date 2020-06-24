@@ -158,5 +158,13 @@ namespace Sinaptik
                 button3.Enabled = false;
             }
         }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Form Data = new FormData();
+            Data.Left = this.Left;
+            Data.Top = this.Top;
+            Data.Show();
+            this.Hide();
+        }
     }
 }

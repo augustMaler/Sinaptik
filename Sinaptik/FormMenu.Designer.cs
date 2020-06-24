@@ -145,12 +145,12 @@
             this.buttonDayRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDayRes.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonDayRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonDayRes.Location = new System.Drawing.Point(497, 373);
+            this.buttonDayRes.Location = new System.Drawing.Point(495, 373);
             this.buttonDayRes.Name = "buttonDayRes";
-            this.buttonDayRes.Size = new System.Drawing.Size(166, 50);
+            this.buttonDayRes.Size = new System.Drawing.Size(168, 50);
             this.buttonDayRes.TabIndex = 5;
             this.buttonDayRes.TabStop = false;
-            this.buttonDayRes.Text = "Статистика";
+            this.buttonDayRes.Text = "Cтатистика";
             this.buttonDayRes.UseVisualStyleBackColor = false;
             this.buttonDayRes.Click += new System.EventHandler(this.buttonDayRes_Click);
             // 
@@ -231,12 +231,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.buttonDayRes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelver);
             this.Controls.Add(this.labelby);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSettings);
-            this.Controls.Add(this.buttonDayRes);
             this.Controls.Add(this.buttonPay);
             this.Controls.Add(this.buttonAdvCamp);
             this.Controls.Add(this.buttonAdv);
