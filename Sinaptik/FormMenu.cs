@@ -24,22 +24,6 @@ namespace Sinaptik
             Clients.Show();
             this.Hide();
         }
-        void buttonAdv_Click(object sender, EventArgs e)
-        {
-            Form Advertising = new FormAdvertising();
-            Advertising.Left = this.Left;
-            Advertising.Top = this.Top;
-            Advertising.Show();
-            this.Hide();
-        }
-        void buttonAdvCamp_Click(object sender, EventArgs e)
-        {
-            Form AdvertisingCamp = new FormAdvertisingCamp();
-            AdvertisingCamp.Left = this.Left;
-            AdvertisingCamp.Top = this.Top;
-            AdvertisingCamp.Show();
-            this.Hide();
-        }
         void buttonPay_Click(object sender, EventArgs e)
         {
             Form Pay = new FormPay();

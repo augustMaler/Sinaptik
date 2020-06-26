@@ -21,6 +21,7 @@ namespace Sinaptik
         }
     
         public int Id { get; set; }
+        public Nullable<int> IdAdvComp { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
@@ -29,6 +30,7 @@ namespace Sinaptik
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdvertisingСompany> AdvertisingСompany { get; set; }
+        public virtual AdvertisingСompany AdvertisingСompany1 { get; set; }
         public virtual BudgetAdv BudgetAdv { get; set; }
     }
 }

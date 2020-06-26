@@ -14,9 +14,9 @@
           <Property Name="IdType" Type="int" />
           <Property Name="IdStatus" Type="int" />
           <Property Name="IdStrategy" Type="int" />
-          <Property Name="IdBudget" Type="int" />
           <Property Name="IdPlace" Type="int" />
           <Property Name="Consumption" Type="int" />
+          <Property Name="AdvSystem" Type="int" />
         </EntityType>
         <EntityType Name="BudgetAdv">
           <Key>
@@ -28,14 +28,15 @@
         </EntityType>
         <EntityType Name="Clients">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar(max)" />
-          <Property Name="surname" Type="nvarchar(max)" />
-          <Property Name="email" Type="nvarchar(max)" />
-          <Property Name="phone" Type="nvarchar(max)" />
-          <Property Name="websait" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAdvComp" Type="int" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Surname" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Websait" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PlaceForAdv">
           <Key>
@@ -48,7 +49,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="StrategyAdv">
@@ -65,24 +66,12 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK_AdvertisingСompany_BudgetAdv">
-          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
-          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BudgetAdv">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AdvertisingСompany">
-              <PropertyRef Name="IdBudget" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_AdvertisingСompany_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="AdvertisingСompany">
               <PropertyRef Name="IdClients" />
@@ -142,10 +131,22 @@
           <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Clients">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="BudgetAdv">
               <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_AdvertisingСompany">
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvertisingСompany">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="IdAdvComp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -157,10 +158,6 @@
           <EntitySet Name="StatusAdv" EntityType="Self.StatusAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StrategyAdv" EntityType="Self.StrategyAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeAdv" EntityType="Self.TypeAdv" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AdvertisingСompany_BudgetAdv" Association="Self.FK_AdvertisingСompany_BudgetAdv">
-            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
-            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
-          </AssociationSet>
           <AssociationSet Name="FK_AdvertisingСompany_Clients" Association="Self.FK_AdvertisingСompany_Clients">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
@@ -185,6 +182,10 @@
             <End Role="Clients" EntitySet="Clients" />
             <End Role="BudgetAdv" EntitySet="BudgetAdv" />
           </AssociationSet>
+          <AssociationSet Name="FK_Clients_AdvertisingСompany" Association="Self.FK_Clients_AdvertisingСompany">
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -200,15 +201,15 @@
           <Property Name="IdType" Type="Int32" />
           <Property Name="IdStatus" Type="Int32" />
           <Property Name="IdStrategy" Type="Int32" />
-          <Property Name="IdBudget" Type="Int32" />
           <Property Name="IdPlace" Type="Int32" />
           <Property Name="Consumption" Type="Int32" />
-          <NavigationProperty Name="BudgetAdv" Relationship="Self.FK_AdvertisingСompany_BudgetAdv" FromRole="AdvertisingСompany" ToRole="BudgetAdv" />
+          <Property Name="AdvSystem" Type="Int32" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="AdvertisingСompany" ToRole="Clients" />
           <NavigationProperty Name="PlaceForAdv" Relationship="Self.FK_AdvertisingСompany_PlaceForAdv" FromRole="AdvertisingСompany" ToRole="PlaceForAdv" />
           <NavigationProperty Name="StatusAdv" Relationship="Self.FK_AdvertisingСompany_StatusAdv" FromRole="AdvertisingСompany" ToRole="StatusAdv" />
           <NavigationProperty Name="StrategyAdv" Relationship="Self.FK_AdvertisingСompany_StrategyAdv" FromRole="AdvertisingСompany" ToRole="StrategyAdv" />
           <NavigationProperty Name="TypeAdv" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="AdvertisingСompany" ToRole="TypeAdv" />
+          <NavigationProperty Name="Clients1" Relationship="Self.FK_Clients_AdvertisingСompany" FromRole="AdvertisingСompany" ToRole="Clients" />
         </EntityType>
         <EntityType Name="BudgetAdv">
           <Key>
@@ -217,7 +218,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int32" />
           <Property Name="Budget" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_BudgetAdv" FromRole="BudgetAdv" ToRole="AdvertisingСompany" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_BudgetAdv_Clients" FromRole="BudgetAdv" ToRole="Clients" />
         </EntityType>
         <EntityType Name="Clients">
@@ -225,12 +225,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAdvComp" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Websait" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="Clients" ToRole="AdvertisingСompany" />
+          <NavigationProperty Name="AdvertisingСompany1" Relationship="Self.FK_Clients_AdvertisingСompany" FromRole="Clients" ToRole="AdvertisingСompany" />
           <NavigationProperty Name="BudgetAdv" Relationship="Self.FK_BudgetAdv_Clients" FromRole="Clients" ToRole="BudgetAdv" />
         </EntityType>
         <EntityType Name="PlaceForAdv">
@@ -245,7 +247,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_StatusAdv" FromRole="StatusAdv" ToRole="AdvertisingСompany" />
         </EntityType>
@@ -265,18 +267,6 @@
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="TypeAdv" ToRole="AdvertisingСompany" />
         </EntityType>
-        <Association Name="FK_AdvertisingСompany_BudgetAdv">
-          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
-          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BudgetAdv">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AdvertisingСompany">
-              <PropertyRef Name="IdBudget" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_AdvertisingСompany_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
@@ -334,6 +324,18 @@
             </Principal>
             <Dependent Role="AdvertisingСompany">
               <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_AdvertisingСompany">
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvertisingСompany">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="IdAdvComp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -357,10 +359,6 @@
           <EntitySet Name="StatusAdv" EntityType="Self.StatusAdv" />
           <EntitySet Name="StrategyAdv" EntityType="Self.StrategyAdv" />
           <EntitySet Name="TypeAdv" EntityType="Self.TypeAdv" />
-          <AssociationSet Name="FK_AdvertisingСompany_BudgetAdv" Association="Self.FK_AdvertisingСompany_BudgetAdv">
-            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
-            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
-          </AssociationSet>
           <AssociationSet Name="FK_AdvertisingСompany_Clients" Association="Self.FK_AdvertisingСompany_Clients">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
@@ -381,6 +379,10 @@
             <End Role="TypeAdv" EntitySet="TypeAdv" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
           </AssociationSet>
+          <AssociationSet Name="FK_Clients_AdvertisingСompany" Association="Self.FK_Clients_AdvertisingСompany">
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
           <AssociationSet Name="FK_BudgetAdv_Clients" Association="Self.FK_BudgetAdv_Clients">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="BudgetAdv" EntitySet="BudgetAdv" />
@@ -400,9 +402,9 @@
                 <ScalarProperty Name="IdType" ColumnName="IdType" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="IdStrategy" ColumnName="IdStrategy" />
-                <ScalarProperty Name="IdBudget" ColumnName="IdBudget" />
                 <ScalarProperty Name="IdPlace" ColumnName="IdPlace" />
                 <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+                <ScalarProperty Name="AdvSystem" ColumnName="AdvSystem" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -418,12 +420,13 @@
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="SinaptikModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
-                <ScalarProperty Name="Id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="name" />
-                <ScalarProperty Name="Surname" ColumnName="surname" />
-                <ScalarProperty Name="Email" ColumnName="email" />
-                <ScalarProperty Name="Phone" ColumnName="phone" />
-                <ScalarProperty Name="Websait" ColumnName="websait" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAdvComp" ColumnName="IdAdvComp" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Websait" ColumnName="Websait" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

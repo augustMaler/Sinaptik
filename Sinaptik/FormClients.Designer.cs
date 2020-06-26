@@ -42,7 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.buttonClient = new System.Windows.Forms.Button();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -219,25 +218,6 @@
             this.label7.Size = new System.Drawing.Size(0, 23);
             this.label7.TabIndex = 24;
             // 
-            // buttonClient
-            // 
-            this.buttonClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.buttonClient.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonClient.FlatAppearance.BorderSize = 2;
-            this.buttonClient.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.buttonClient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.buttonClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClient.Font = new System.Drawing.Font("Calibri", 14F);
-            this.buttonClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonClient.Location = new System.Drawing.Point(619, 510);
-            this.buttonClient.Name = "buttonClient";
-            this.buttonClient.Size = new System.Drawing.Size(353, 39);
-            this.buttonClient.TabIndex = 25;
-            this.buttonClient.Text = "Перейти к рекламным системам";
-            this.buttonClient.UseVisualStyleBackColor = false;
-            this.buttonClient.Click += new System.EventHandler(this.buttonClient_Click);
-            // 
             // Id
             // 
             this.Id.Text = "Id";
@@ -265,13 +245,13 @@
             // 
             this.phone.Text = "Номер";
             this.phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.phone.Width = 172;
+            this.phone.Width = 187;
             // 
             // namews
             // 
             this.namews.Text = "Название сайта";
             this.namews.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.namews.Width = 256;
+            this.namews.Width = 241;
             // 
             // listView1
             // 
@@ -295,6 +275,7 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // button3
             // 
@@ -330,7 +311,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.buttonClient);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -381,7 +361,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button buttonClient;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.ColumnHeader surname;

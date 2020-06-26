@@ -16,6 +16,8 @@ namespace Sinaptik
         public FormAdvertising()
         {
             InitializeComponent();
+            label4.Text = $"Id Пользователя: {Personal.Id}" +
+                $"\nИмя: {Personal.Name} {Personal.Surname}";
             if (Coloring.Back == 1) this.BackColor = Color.Black;
             if (Coloring.Back == 2) this.BackColor = Color.FromArgb(64, 64, 64);
             if (Coloring.Back == 3) this.BackColor = Color.White;
@@ -54,7 +56,7 @@ namespace Sinaptik
         }
         void button1_Click(object sender, EventArgs e)
         {
-            AdvSys.Sys = 1;
+            Personal.System = 1;
             Form AdvCamp = new FormAdvertisingCamp();
             AdvCamp.StartPosition = FormStartPosition.Manual;
             AdvCamp.Left = this.Left;
@@ -64,7 +66,7 @@ namespace Sinaptik
         }
         void button2_Click(object sender, EventArgs e)
         {
-            AdvSys.Sys = 2;
+            Personal.System = 2;
             Form AdvCamp = new FormAdvertisingCamp();
             AdvCamp.StartPosition = FormStartPosition.Manual;
             AdvCamp.Left = this.Left;
@@ -74,7 +76,7 @@ namespace Sinaptik
         }
         void button3_Click(object sender, EventArgs e)
         {
-            AdvSys.Sys = 3;
+            Personal.System = 3;
             Form AdvCamp = new FormAdvertisingCamp();
             AdvCamp.StartPosition = FormStartPosition.Manual;
             AdvCamp.Left = this.Left;

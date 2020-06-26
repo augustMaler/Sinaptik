@@ -25,6 +25,14 @@ namespace Sinaptik
         public static int Fore { get; set; }
         public static int Back { get; set; }
     }
+    static class Personal
+    {
+        public static int Id { get; set; }
+        public static int System { get; set; }
+        public static string Name { get; set; }
+        public static string Surname { get; set; }
+        public static string WebSite { get; set; }
+    }
     static class Author
     {
         public static int OnOff { get; set; }

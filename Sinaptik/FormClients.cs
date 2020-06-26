@@ -156,5 +156,22 @@ namespace Sinaptik
             this.Hide();
             Adv.Show();
         }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                Clients client = listView1.SelectedItems[0].Tag as Clients;
+                Personal.Id = client.Id;
+                Personal.Name = client.Name;
+                Personal.Surname = client.Surname;
+                Form Adv = new FormAdvertising();
+                Adv.StartPosition = FormStartPosition.Manual;
+                Adv.Left = this.Left;
+                Adv.Top = this.Top;
+                this.Hide();
+                Adv.Show();
+            }
+        }
     }
 }

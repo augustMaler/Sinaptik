@@ -12,33 +12,49 @@ namespace Sinaptik
 {
     public partial class FormAdvertisingCamp : Form
     {
-        void ShowListView()
+        public void ShowListView()
         {
             listView1.Items.Clear();
-            foreach (AdvertisingСompany advertisingСomp in Program.sinDB.AdvertisingСompany)
+            foreach (AdvertisingСompany advСomp in Program.sinDB.AdvertisingСompany)
             {
                 ListViewItem item = new ListViewItem(new string[]
                     {
-                        advertisingСomp.Id.ToString(), 
-                        advertisingСomp.IdType.ToString() + ". " + advertisingСomp.TypeAdv.Type,
-                        advertisingСomp.IdClients.ToString() + ". " + advertisingСomp.Clients.Websait,
-                        advertisingСomp.IdStatus.ToString() + ". " + advertisingСomp.StatusAdv.Status,
-                        advertisingСomp.IdStrategy.ToString() + ". " + advertisingСomp.StrategyAdv.Strategy,
-                        //advertisingСomp.IdBudget.ToString() + ". " + advertisingСomp.BudgetAdv.Budget,
-                        advertisingСomp.IdPlace.ToString() + ". " + advertisingСomp.PlaceForAdv.PlaceForAdv1
+                        advСomp.Id.ToString(),
+                        advСomp.IdType.ToString(),
+                        advСomp.IdClients.ToString(),
+                        advСomp.IdStatus.ToString(),
+                        advСomp.IdStrategy.ToString(),
+                        advСomp.IdPlace.ToString(),
+                        advСomp.Consumption.ToString()
                     });
-                item.Tag = advertisingСomp;
+                item.Tag = advСomp;
                 listView1.Items.Add(item);
             }
         }
+
         public FormAdvertisingCamp()
         {
             InitializeComponent();
             if (Coloring.Back == 1) this.BackColor = Color.Black;
             if (Coloring.Back == 2) this.BackColor = Color.FromArgb(64, 64, 64);
             if (Coloring.Back == 3) this.BackColor = Color.White;
+            if (Personal.System == 1) label1.Text = "Google";
+            if (Personal.System == 2) label1.Text = "Yandex";
+            if (Personal.System == 3) label1.Text = "VK";
             ShowComboboxUserWeb();
-            ShowListView();
+            ShowComboboxType();
+            ShowComboboxStatus();
+            ShowComboboxStrategy();
+            ShowComboboxPlace();
+        }
+        void ShowComboboxType()
+        {
+            comboBoxType.Items.Clear();
+            foreach (TypeAdv type in Program.sinDB.TypeAdv)
+            {
+                string[] item = { type.Type };
+                comboBoxType.Items.Add(string.Join(" ", item));
+            }
         }
         void ShowComboboxUserWeb()
         {
@@ -47,6 +63,33 @@ namespace Sinaptik
             {
                 string[] item = { web.Websait };
                 comboBoxUserWeb.Items.Add(string.Join(" ", item));
+            }
+        }
+        void ShowComboboxStatus()
+        {
+            comboBoxStatus.Items.Clear();
+            foreach (StatusAdv status in Program.sinDB.StatusAdv)
+            {
+                string[] item = { status.Status };
+                comboBoxStatus.Items.Add(string.Join(" ", item));
+            }
+        }
+        void ShowComboboxStrategy()
+        {
+            comboBoxStrategy.Items.Clear();
+            foreach (StrategyAdv strategy in Program.sinDB.StrategyAdv)
+            {
+                string[] item = { strategy.Strategy };
+                comboBoxStrategy.Items.Add(string.Join(" ", item));
+            }
+        }
+        void ShowComboboxPlace()
+        {
+            comboBoxPlace.Items.Clear();
+            foreach (PlaceForAdv place in Program.sinDB.PlaceForAdv)
+            {
+                string[] item = { place.PlaceForAdv1 };
+                comboBoxPlace.Items.Add(string.Join(" ", item));
             }
         }
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -88,11 +131,6 @@ namespace Sinaptik
             Menu.Top = this.Top;
             this.Hide();
             Menu.Show();
-        }
-
-        private void FormAdvertisingCamp_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

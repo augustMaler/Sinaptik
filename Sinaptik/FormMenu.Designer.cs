@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClients = new System.Windows.Forms.Button();
-            this.buttonAdv = new System.Windows.Forms.Button();
-            this.buttonAdvCamp = new System.Windows.Forms.Button();
             this.buttonPay = new System.Windows.Forms.Button();
             this.buttonDayRes = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,7 +63,7 @@
             this.buttonClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClients.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonClients.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonClients.Location = new System.Drawing.Point(323, 205);
+            this.buttonClients.Location = new System.Drawing.Point(322, 214);
             this.buttonClients.Name = "buttonClients";
             this.buttonClients.Size = new System.Drawing.Size(340, 50);
             this.buttonClients.TabIndex = 1;
@@ -73,46 +71,6 @@
             this.buttonClients.Text = "Клиенты";
             this.buttonClients.UseVisualStyleBackColor = false;
             this.buttonClients.Click += new System.EventHandler(this.buttonClients_Click);
-            // 
-            // buttonAdv
-            // 
-            this.buttonAdv.BackColor = System.Drawing.Color.DimGray;
-            this.buttonAdv.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonAdv.FlatAppearance.BorderSize = 2;
-            this.buttonAdv.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.buttonAdv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonAdv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.buttonAdv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdv.Font = new System.Drawing.Font("Calibri", 20F);
-            this.buttonAdv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonAdv.Location = new System.Drawing.Point(323, 261);
-            this.buttonAdv.Name = "buttonAdv";
-            this.buttonAdv.Size = new System.Drawing.Size(340, 50);
-            this.buttonAdv.TabIndex = 2;
-            this.buttonAdv.TabStop = false;
-            this.buttonAdv.Text = "Рекламные системы";
-            this.buttonAdv.UseVisualStyleBackColor = false;
-            this.buttonAdv.Click += new System.EventHandler(this.buttonAdv_Click);
-            // 
-            // buttonAdvCamp
-            // 
-            this.buttonAdvCamp.BackColor = System.Drawing.Color.DimGray;
-            this.buttonAdvCamp.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonAdvCamp.FlatAppearance.BorderSize = 2;
-            this.buttonAdvCamp.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.buttonAdvCamp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonAdvCamp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.buttonAdvCamp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdvCamp.Font = new System.Drawing.Font("Calibri", 20F);
-            this.buttonAdvCamp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonAdvCamp.Location = new System.Drawing.Point(323, 317);
-            this.buttonAdvCamp.Name = "buttonAdvCamp";
-            this.buttonAdvCamp.Size = new System.Drawing.Size(340, 50);
-            this.buttonAdvCamp.TabIndex = 3;
-            this.buttonAdvCamp.TabStop = false;
-            this.buttonAdvCamp.Text = "Рекламные кампании";
-            this.buttonAdvCamp.UseVisualStyleBackColor = false;
-            this.buttonAdvCamp.Click += new System.EventHandler(this.buttonAdvCamp_Click);
             // 
             // buttonPay
             // 
@@ -125,9 +83,9 @@
             this.buttonPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPay.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonPay.Location = new System.Drawing.Point(323, 373);
+            this.buttonPay.Location = new System.Drawing.Point(322, 270);
             this.buttonPay.Name = "buttonPay";
-            this.buttonPay.Size = new System.Drawing.Size(166, 50);
+            this.buttonPay.Size = new System.Drawing.Size(340, 50);
             this.buttonPay.TabIndex = 4;
             this.buttonPay.TabStop = false;
             this.buttonPay.Text = "Бюджеты";
@@ -145,9 +103,9 @@
             this.buttonDayRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDayRes.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonDayRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonDayRes.Location = new System.Drawing.Point(495, 373);
+            this.buttonDayRes.Location = new System.Drawing.Point(322, 326);
             this.buttonDayRes.Name = "buttonDayRes";
-            this.buttonDayRes.Size = new System.Drawing.Size(168, 50);
+            this.buttonDayRes.Size = new System.Drawing.Size(340, 50);
             this.buttonDayRes.TabIndex = 5;
             this.buttonDayRes.TabStop = false;
             this.buttonDayRes.Text = "Cтатистика";
@@ -195,7 +153,7 @@
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Calibri", 20F);
             this.buttonSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonSettings.Location = new System.Drawing.Point(323, 429);
+            this.buttonSettings.Location = new System.Drawing.Point(322, 382);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(340, 50);
             this.buttonSettings.TabIndex = 6;
@@ -217,7 +175,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 20F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button1.Location = new System.Drawing.Point(669, 429);
+            this.button1.Location = new System.Drawing.Point(668, 326);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.TabIndex = 10;
@@ -238,8 +196,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.buttonPay);
-            this.Controls.Add(this.buttonAdvCamp);
-            this.Controls.Add(this.buttonAdv);
             this.Controls.Add(this.buttonClients);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -262,8 +218,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClients;
-        private System.Windows.Forms.Button buttonAdv;
-        private System.Windows.Forms.Button buttonAdvCamp;
         private System.Windows.Forms.Button buttonPay;
         private System.Windows.Forms.Button buttonDayRes;
         private System.Windows.Forms.Label label2;
