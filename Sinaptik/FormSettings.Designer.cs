@@ -63,7 +63,7 @@
             this.buttonSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Calibri", 16F);
+            this.buttonSettings.Font = new System.Drawing.Font("Calibri", 14F);
             this.buttonSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.buttonSettings.Location = new System.Drawing.Point(12, 510);
             this.buttonSettings.Name = "buttonSettings";

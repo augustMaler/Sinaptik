@@ -39,7 +39,7 @@ namespace Sinaptik
         }
         void FormPay_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Back();
+            Application.Exit();
         }
         void buttonSettings_Click(object sender, EventArgs e)
         {
@@ -56,7 +56,6 @@ namespace Sinaptik
         {
             if (listView1.SelectedItems.Count == 1)
             {
-                button1.Visible = true;
                 AdvertisingСompany advСompany = listView1.SelectedItems[0].Tag as AdvertisingСompany;
                 textBox1.Text = advСompany.Consumption.ToString();
                 textBox2.Text = advСompany.Budget.ToString();
@@ -64,7 +63,7 @@ namespace Sinaptik
             }
             else
             {
-                button1.Visible = false;
+
             }
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,27 +71,50 @@ namespace Sinaptik
             if (comboBox1.SelectedIndex == 0)
             {
                 labelName.Text = "Номер банковской карты:";
+                textBox5.Visible = true;
+                textBox5.Text = "";
             }
             if (comboBox1.SelectedIndex == 1)
             {
                 labelName.Text = "Номер счета:";
+                textBox5.Visible = true;
+                textBox5.Text = "";
             }
             if (comboBox1.SelectedIndex == 2)
             {
                 labelName.Text = "Номер PayPal:";
+                textBox5.Visible = true;
+                textBox5.Text = "";
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count == 1)
+            if(listView1.SelectedItems.Count == 1)
             {
-                panel2.Visible = true;
+                if(textBox4.Text != "" & textBox5.Text != "")
+                {
+                    AdvertisingСompany advComp = listView1.SelectedItems[0].Tag as AdvertisingСompany;
+                    advComp.Budget = (advComp.Budget + Convert.ToInt32(textBox4.Text));
+                    Program.sinDB.SaveChanges();
+                    ShowListView();
+                }
+                else
+                {
+                    label9.Text = "Вы не ввели какие-то данные";
+                }
             }
             else
             {
-                panel2.Visible = false;
+
             }
+        }
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            label9.Text = "";
+        }
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            label9.Text = "";
         }
     }
 }

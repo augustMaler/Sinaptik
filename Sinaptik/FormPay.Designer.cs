@@ -45,15 +45,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -233,26 +234,6 @@
             this.textBox3.Size = new System.Drawing.Size(152, 31);
             this.textBox3.TabIndex = 15;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button1.Location = new System.Drawing.Point(689, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(283, 66);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Пополнить баланс";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -265,16 +246,46 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(283, 350);
             this.panel2.TabIndex = 16;
-            this.panel2.Visible = false;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.textBox5);
             this.panel3.Controls.Add(this.labelName);
             this.panel3.Location = new System.Drawing.Point(-1, 142);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(283, 207);
             this.panel3.TabIndex = 22;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Calibri", 14F);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.button2.Location = new System.Drawing.Point(6, 118);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(271, 58);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Пополнить баланс";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.textBox5.Location = new System.Drawing.Point(4, 39);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(181, 31);
+            this.textBox5.TabIndex = 23;
+            this.textBox5.Visible = false;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // labelName
             // 
@@ -283,7 +294,6 @@
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(275, 24);
             this.labelName.TabIndex = 23;
-            this.labelName.Text = "Счет PayPal:";
             // 
             // comboBox1
             // 
@@ -316,6 +326,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(181, 31);
             this.textBox4.TabIndex = 19;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -326,13 +337,13 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Сумма пополнения:";
             // 
-            // textBox5
+            // label9
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox5.Location = new System.Drawing.Point(4, 39);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(181, 31);
-            this.textBox5.TabIndex = 23;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label9.Location = new System.Drawing.Point(4, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(275, 24);
+            this.label9.TabIndex = 23;
             // 
             // FormPay
             // 
@@ -341,7 +352,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonSettings);
@@ -387,7 +397,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
@@ -396,5 +405,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
     }
 }

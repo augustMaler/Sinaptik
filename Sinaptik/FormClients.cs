@@ -132,7 +132,7 @@ namespace Sinaptik
         }
         void FormClients_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Back();
+            Application.Exit();
         }
         void buttonSettings_Click(object sender, EventArgs e)
         {

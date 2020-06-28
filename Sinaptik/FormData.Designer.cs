@@ -82,6 +82,7 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.Type});
@@ -121,6 +122,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.textBox1.Location = new System.Drawing.Point(12, 119);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(204, 31);
@@ -210,6 +212,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.textBox2.Location = new System.Drawing.Point(262, 119);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(204, 31);
@@ -217,6 +220,7 @@
             // 
             // listView2
             // 
+            this.listView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
@@ -269,6 +273,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.textBox3.Location = new System.Drawing.Point(518, 119);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(204, 31);
@@ -276,6 +281,7 @@
             // 
             // listView3
             // 
+            this.listView3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
@@ -344,6 +350,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.textBox4.Location = new System.Drawing.Point(768, 119);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(204, 31);
@@ -351,6 +358,7 @@
             // 
             // listView4
             // 
+            this.listView4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader6});

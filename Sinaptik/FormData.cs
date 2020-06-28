@@ -82,7 +82,7 @@ namespace Sinaptik
         }
         private void FormData_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Back();
+            Application.Exit();
         }
         public void Back()
         {

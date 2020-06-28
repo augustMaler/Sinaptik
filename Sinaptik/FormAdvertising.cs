@@ -30,7 +30,7 @@ namespace Sinaptik
         }
         void FormAdvertising_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Back();
+            Application.Exit();
         }
         void buttonSettings_Click(object sender, EventArgs e)
         {
@@ -38,10 +38,7 @@ namespace Sinaptik
         }
         public void Back()
         {
-            Form Menu = Application.OpenForms["FormMenu"];
-            Menu.StartPosition = FormStartPosition.Manual;
-            Menu.Left = this.Left;
-            Menu.Top = this.Top;
+            FormMenu Menu = new FormMenu();
             this.Hide();
             Menu.Show();
         }
@@ -163,9 +160,28 @@ namespace Sinaptik
         private void button10_Click(object sender, EventArgs e)
         {
             Form Data = new FormData();
-            Data.Left = this.Left;
-            Data.Top = this.Top;
             Data.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormDayResult frmRes = new FormDayResult();
+            frmRes.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormDayResult frmRes = new FormDayResult();
+            frmRes.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormDayResult frmRes = new FormDayResult();
+            frmRes.Show();
             this.Hide();
         }
     }

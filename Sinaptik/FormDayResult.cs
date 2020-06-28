@@ -19,12 +19,10 @@ namespace Sinaptik
             if (Coloring.Back == 2) this.BackColor = Color.FromArgb(64, 64, 64);
             if (Coloring.Back == 3) this.BackColor = Color.White;
         }
-
         void FormDayResult_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Back();
+            Application.Exit();
         }
-
         void buttonSettings_Click(object sender, EventArgs e)
         {
             Back();

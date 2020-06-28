@@ -15,10 +15,27 @@ namespace Sinaptik
     {
         public void ShowListView()
         {
+            if(Personal.System == 1)
+            {
+                ListViewCheck(1, Personal.Id);
+            }
+            if (Personal.System == 2)
+            {
+                ListViewCheck(2, Personal.Id);
+            }
+            if (Personal.System == 3)
+            {
+                ListViewCheck(3, Personal.Id);
+            }
+        }
+        public void ListViewCheck(int i, int id)
+        {
             listView1.Items.Clear();
             foreach (AdvertisingСompany advСomp in Program.sinDB.AdvertisingСompany)
             {
-                ListViewItem item = new ListViewItem(new string[]
+                if (advСomp.IdAdvComp == i & advСomp.IdClients == id)
+                {
+                    ListViewItem item = new ListViewItem(new string[]
                     {
                         advСomp.Id.ToString(),
                         advСomp.TypeAdv.Type,
@@ -29,8 +46,9 @@ namespace Sinaptik
                         advСomp.PlaceForAdv.PlaceForAdv1,
                         advСomp.Consumption.ToString()
                     });
-                item.Tag = advСomp;
-                listView1.Items.Add(item);
+                    item.Tag = advСomp;
+                    listView1.Items.Add(item);
+                }
             }
         }
         public FormAdvertisingCamp()
@@ -39,11 +57,7 @@ namespace Sinaptik
             if (Coloring.Back == 1) this.BackColor = Color.Black;
             if (Coloring.Back == 2) this.BackColor = Color.FromArgb(64, 64, 64);
             if (Coloring.Back == 3) this.BackColor = Color.White;
-            if (Personal.System == 1) label1.Text = "Google";
-            if (Personal.System == 2) label1.Text = "Yandex";
-            if (Personal.System == 3) label1.Text = "VK";
             ShowListView();
-            ShowComboboxUserWeb();
             ShowComboboxType();
             ShowComboboxStatus();
             ShowComboboxStrategy();
@@ -56,15 +70,6 @@ namespace Sinaptik
             {
                 string[] item = { type.Id + ".", type.Type };
                 comboBoxType.Items.Add(string.Join(" ", item));
-            }
-        }
-        void ShowComboboxUserWeb()
-        {
-            comboBoxUserWeb.Items.Clear();
-            foreach (Clients web in Program.sinDB.Clients)
-            {
-                string[] item = { web.Id + ". ", web.Websait };
-                comboBoxUserWeb.Items.Add(string.Join(" ", item));
             }
         }
         void ShowComboboxStatus()
@@ -127,23 +132,34 @@ namespace Sinaptik
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            if (Personal.System == 1)
+            {
+                AddItem(1);
+            }
+            if (Personal.System == 2)
+            {
+                AddItem(2);
+            }
+            if (Personal.System == 3)
+            {
+                AddItem(3);
+            }
+        }
+        public void AddItem(int i)
+        {
             AdvertisingСompany advertisingСomp = new AdvertisingСompany();
             advertisingСomp.IdType = Convert.ToInt32(comboBoxType.SelectedItem.ToString().Split('.')[0]);
-            advertisingСomp.IdClients = Convert.ToInt32(comboBoxUserWeb.SelectedItem.ToString().Split('.')[0]);
+            advertisingСomp.IdClients = Personal.Id;
             advertisingСomp.IdStatus = Convert.ToInt32(comboBoxStatus.SelectedItem.ToString().Split('.')[0]);
             advertisingСomp.IdStrategy = Convert.ToInt32(comboBoxStrategy.SelectedItem.ToString().Split('.')[0]);
             advertisingСomp.IdPlace = Convert.ToInt32(comboBoxPlace.SelectedItem.ToString().Split('.')[0]);
             advertisingСomp.Consumption = Convert.ToInt32(textBox1.Text);
             advertisingСomp.Budget = 0;
+            advertisingСomp.IdAdvComp = i;
             Program.sinDB.AdvertisingСompany.Add(advertisingСomp);
             Program.sinDB.SaveChanges();
             ShowListView();
         }
-        void FormAdvertisingCamp_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Back();
-        }
-
         void buttonSettings_Click(object sender, EventArgs e)
         {
             Back();
@@ -153,6 +169,10 @@ namespace Sinaptik
             FormMenu Menu = new FormMenu();
             this.Hide();
             Menu.Show();
+        }
+        private void FormAdvertisingCamp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
