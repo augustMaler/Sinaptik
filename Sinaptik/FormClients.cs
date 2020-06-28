@@ -140,12 +140,9 @@ namespace Sinaptik
         }
         public void Back()
         {
-            Form Menu = Application.OpenForms["FormMenu"];
-            Menu.StartPosition = FormStartPosition.Manual;
-            Menu.Left = this.Left;
-            Menu.Top = this.Top;
+            Form menu = new FormMenu();
             this.Hide();
-            Menu.Show();
+            menu.Show();
         }
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
