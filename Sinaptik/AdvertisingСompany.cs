@@ -27,7 +27,6 @@ namespace Sinaptik
         public Nullable<int> IdStrategy { get; set; }
         public Nullable<int> IdPlace { get; set; }
         public Nullable<int> Consumption { get; set; }
-        public Nullable<int> AdvSystem { get; set; }
     
         public virtual Clients Clients { get; set; }
         public virtual PlaceForAdv PlaceForAdv { get; set; }

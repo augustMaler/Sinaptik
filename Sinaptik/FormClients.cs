@@ -140,23 +140,13 @@ namespace Sinaptik
         }
         public void Back()
         {
-            Form Menu = Application.OpenForms[0];
+            Form Menu = Application.OpenForms["FormMenu"];
             Menu.StartPosition = FormStartPosition.Manual;
             Menu.Left = this.Left;
             Menu.Top = this.Top;
             this.Hide();
             Menu.Show();
         }
-        private void buttonClient_Click(object sender, EventArgs e)
-        {
-            Form Adv = new FormAdvertising();
-            Adv.StartPosition = FormStartPosition.Manual;
-            Adv.Left = this.Left;
-            Adv.Top = this.Top;
-            this.Hide();
-            Adv.Show();
-        }
-
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listView1.SelectedItems.Count == 1)

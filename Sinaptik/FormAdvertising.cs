@@ -38,7 +38,7 @@ namespace Sinaptik
         }
         public void Back()
         {
-            Form Menu = Application.OpenForms[0];
+            Form Menu = Application.OpenForms["FormMenu"];
             Menu.StartPosition = FormStartPosition.Manual;
             Menu.Left = this.Left;
             Menu.Top = this.Top;

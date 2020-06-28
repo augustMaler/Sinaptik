@@ -16,7 +16,14 @@
           <Property Name="IdStrategy" Type="int" />
           <Property Name="IdPlace" Type="int" />
           <Property Name="Consumption" Type="int" />
-          <Property Name="AdvSystem" Type="int" />
+        </EntityType>
+        <EntityType Name="Autorization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BudgetAdv">
           <Key>
@@ -152,6 +159,7 @@
         </Association>
         <EntityContainer Name="Хранилище SinaptikModelContainer">
           <EntitySet Name="AdvertisingСompany" EntityType="Self.AdvertisingСompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Autorization" EntityType="Self.Autorization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BudgetAdv" EntityType="Self.BudgetAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaceForAdv" EntityType="Self.PlaceForAdv" Schema="dbo" store:Type="Tables" />
@@ -203,13 +211,20 @@
           <Property Name="IdStrategy" Type="Int32" />
           <Property Name="IdPlace" Type="Int32" />
           <Property Name="Consumption" Type="Int32" />
-          <Property Name="AdvSystem" Type="Int32" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="AdvertisingСompany" ToRole="Clients" />
           <NavigationProperty Name="PlaceForAdv" Relationship="Self.FK_AdvertisingСompany_PlaceForAdv" FromRole="AdvertisingСompany" ToRole="PlaceForAdv" />
           <NavigationProperty Name="StatusAdv" Relationship="Self.FK_AdvertisingСompany_StatusAdv" FromRole="AdvertisingСompany" ToRole="StatusAdv" />
           <NavigationProperty Name="StrategyAdv" Relationship="Self.FK_AdvertisingСompany_StrategyAdv" FromRole="AdvertisingСompany" ToRole="StrategyAdv" />
           <NavigationProperty Name="TypeAdv" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="AdvertisingСompany" ToRole="TypeAdv" />
           <NavigationProperty Name="Clients1" Relationship="Self.FK_Clients_AdvertisingСompany" FromRole="AdvertisingСompany" ToRole="Clients" />
+        </EntityType>
+        <EntityType Name="Autorization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="BudgetAdv">
           <Key>
@@ -353,6 +368,7 @@
         </Association>
         <EntityContainer Name="SinaptikEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AdvertisingСompany" EntityType="Self.AdvertisingСompany" />
+          <EntitySet Name="Autorization" EntityType="Self.Autorization" />
           <EntitySet Name="BudgetAdv" EntityType="Self.BudgetAdv" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
           <EntitySet Name="PlaceForAdv" EntityType="Self.PlaceForAdv" />
@@ -404,7 +420,15 @@
                 <ScalarProperty Name="IdStrategy" ColumnName="IdStrategy" />
                 <ScalarProperty Name="IdPlace" ColumnName="IdPlace" />
                 <ScalarProperty Name="Consumption" ColumnName="Consumption" />
-                <ScalarProperty Name="AdvSystem" ColumnName="AdvSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Autorization">
+            <EntityTypeMapping TypeName="SinaptikModel.Autorization">
+              <MappingFragment StoreEntitySet="Autorization">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -56,5 +56,10 @@ namespace Sinaptik
             if (Coloring.Back == 2) this.BackColor = Color.FromArgb(64, 64, 64);
             if (Coloring.Back == 3) this.BackColor = Color.White;
         }
+
+        private void FormMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -64,6 +64,9 @@
     <Compile Include="Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Autorization.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="BudgetAdv.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

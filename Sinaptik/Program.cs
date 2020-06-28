@@ -17,7 +17,7 @@ namespace Sinaptik
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
+            Application.Run(new Authorization());
         }
     }
     static class Coloring
@@ -44,7 +44,6 @@ namespace Sinaptik
         public static int Google { get; set; }
         public static int Yandex { get; set; }
         public static int VK { get; set; }
-
     }
 
 }

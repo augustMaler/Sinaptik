@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Sinaptik
 {
@@ -20,18 +21,18 @@ namespace Sinaptik
                 ListViewItem item = new ListViewItem(new string[]
                     {
                         advСomp.Id.ToString(),
-                        advСomp.IdType.ToString(),
-                        advСomp.IdClients.ToString(),
-                        advСomp.IdStatus.ToString(),
-                        advСomp.IdStrategy.ToString(),
-                        advСomp.IdPlace.ToString(),
+                        advСomp.TypeAdv.Type,
+                        advСomp.Clients.Surname + " " + advСomp.Clients.Name,
+                        advСomp.Clients.Websait,
+                        advСomp.StatusAdv.Status,
+                        advСomp.StrategyAdv.Strategy,
+                        advСomp.PlaceForAdv.PlaceForAdv1,
                         advСomp.Consumption.ToString()
                     });
                 item.Tag = advСomp;
                 listView1.Items.Add(item);
             }
         }
-
         public FormAdvertisingCamp()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace Sinaptik
             if (Personal.System == 1) label1.Text = "Google";
             if (Personal.System == 2) label1.Text = "Yandex";
             if (Personal.System == 3) label1.Text = "VK";
+            ShowListView();
             ShowComboboxUserWeb();
             ShowComboboxType();
             ShowComboboxStatus();
@@ -52,7 +54,7 @@ namespace Sinaptik
             comboBoxType.Items.Clear();
             foreach (TypeAdv type in Program.sinDB.TypeAdv)
             {
-                string[] item = { type.Type };
+                string[] item = { type.Id + ".", type.Type };
                 comboBoxType.Items.Add(string.Join(" ", item));
             }
         }
@@ -61,7 +63,7 @@ namespace Sinaptik
             comboBoxUserWeb.Items.Clear();
             foreach (Clients web in Program.sinDB.Clients)
             {
-                string[] item = { web.Websait };
+                string[] item = { web.Id + ". ", web.Websait };
                 comboBoxUserWeb.Items.Add(string.Join(" ", item));
             }
         }
@@ -70,7 +72,7 @@ namespace Sinaptik
             comboBoxStatus.Items.Clear();
             foreach (StatusAdv status in Program.sinDB.StatusAdv)
             {
-                string[] item = { status.Status };
+                string[] item = { status.Id + ". ", status.Status };
                 comboBoxStatus.Items.Add(string.Join(" ", item));
             }
         }
@@ -79,7 +81,7 @@ namespace Sinaptik
             comboBoxStrategy.Items.Clear();
             foreach (StrategyAdv strategy in Program.sinDB.StrategyAdv)
             {
-                string[] item = { strategy.Strategy };
+                string[] item = { strategy.Id + ". ", strategy.Strategy };
                 comboBoxStrategy.Items.Add(string.Join(" ", item));
             }
         }
@@ -88,7 +90,7 @@ namespace Sinaptik
             comboBoxPlace.Items.Clear();
             foreach (PlaceForAdv place in Program.sinDB.PlaceForAdv)
             {
-                string[] item = { place.PlaceForAdv1 };
+                string[] item = {place.Id + ". ", place.PlaceForAdv1 };
                 comboBoxPlace.Items.Add(string.Join(" ", item));
             }
         }
@@ -103,12 +105,34 @@ namespace Sinaptik
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (listView1.SelectedItems.Count == 1)
+                {
+                    AdvertisingСompany advCamp = listView1.SelectedItems[0].Tag as AdvertisingСompany;
+                    Program.sinDB.AdvertisingСompany.Remove(advCamp);
+                    Program.sinDB.SaveChanges();
+                    ShowListView();
+                }
+                else
+                {
+                    textBox1.Text = "";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно удалить, эта запись используется!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AdvertisingСompany advertisingСomp = new AdvertisingСompany();
-
+            advertisingСomp.IdType = Convert.ToInt32(comboBoxType.SelectedItem.ToString().Split('.')[0]);
+            advertisingСomp.IdClients = Convert.ToInt32(comboBoxUserWeb.SelectedItem.ToString().Split('.')[0]);
+            advertisingСomp.IdStatus = Convert.ToInt32(comboBoxStatus.SelectedItem.ToString().Split('.')[0]);
+            advertisingСomp.IdStrategy = Convert.ToInt32(comboBoxStrategy.SelectedItem.ToString().Split('.')[0]);
+            advertisingСomp.IdPlace = Convert.ToInt32(comboBoxPlace.SelectedItem.ToString().Split('.')[0]);
             advertisingСomp.Consumption = Convert.ToInt32(textBox1.Text);
             Program.sinDB.AdvertisingСompany.Add(advertisingСomp);
             Program.sinDB.SaveChanges();
@@ -125,10 +149,7 @@ namespace Sinaptik
         }
         public void Back()
         {
-            Form Menu = Application.OpenForms[0];
-            Menu.StartPosition = FormStartPosition.Manual;
-            Menu.Left = this.Left;
-            Menu.Top = this.Top;
+            Form Menu = Application.OpenForms["FormMenu"];
             this.Hide();
             Menu.Show();
         }

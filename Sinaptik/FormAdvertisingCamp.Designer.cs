@@ -33,13 +33,13 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NameClients = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.WebSite = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Strategy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Place = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Consumption = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.comboBoxUserWeb = new System.Windows.Forms.ComboBox();
@@ -87,9 +87,11 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.Type,
+            this.NameClients,
             this.WebSite,
             this.Status,
             this.Strategy,
@@ -99,10 +101,10 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(180, 96);
+            this.listView1.Location = new System.Drawing.Point(12, 201);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1192, 389);
+            this.listView1.Size = new System.Drawing.Size(1360, 303);
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -110,7 +112,7 @@
             // Id
             // 
             this.Id.Text = "Id";
-            this.Id.Width = 40;
+            this.Id.Width = 50;
             // 
             // Type
             // 
@@ -118,11 +120,17 @@
             this.Type.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Type.Width = 150;
             // 
+            // NameClients
+            // 
+            this.NameClients.Text = "Имя Фамилия";
+            this.NameClients.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NameClients.Width = 200;
+            // 
             // WebSite
             // 
             this.WebSite.Text = "Вебсайт";
             this.WebSite.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WebSite.Width = 278;
+            this.WebSite.Width = 200;
             // 
             // Status
             // 
@@ -134,19 +142,19 @@
             // 
             this.Strategy.Text = "Стратегия";
             this.Strategy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Strategy.Width = 188;
+            this.Strategy.Width = 180;
             // 
             // Place
             // 
             this.Place.Text = "Места показов";
             this.Place.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Place.Width = 185;
+            this.Place.Width = 180;
             // 
             // Consumption
             // 
-            this.Consumption.Text = "Расход";
+            this.Consumption.Text = "Расход, руб.";
             this.Consumption.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Consumption.Width = 197;
+            this.Consumption.Width = 195;
             // 
             // buttonAdd
             // 
@@ -159,31 +167,13 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Calibri", 14F);
             this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonAdd.Location = new System.Drawing.Point(229, 510);
+            this.buttonAdd.Location = new System.Drawing.Point(1242, 122);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(211, 39);
+            this.buttonAdd.Size = new System.Drawing.Size(130, 64);
             this.buttonAdd.TabIndex = 17;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonEdit
-            // 
-            this.buttonEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonEdit.FlatAppearance.BorderSize = 2;
-            this.buttonEdit.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.buttonEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEdit.Font = new System.Drawing.Font("Calibri", 14F);
-            this.buttonEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonEdit.Location = new System.Drawing.Point(446, 510);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(211, 39);
-            this.buttonEdit.TabIndex = 18;
-            this.buttonEdit.Text = "Изменить";
-            this.buttonEdit.UseVisualStyleBackColor = false;
             // 
             // buttonDelete
             // 
@@ -196,9 +186,9 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Calibri", 14F);
             this.buttonDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.buttonDelete.Location = new System.Drawing.Point(663, 510);
+            this.buttonDelete.Location = new System.Drawing.Point(12, 124);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(211, 39);
+            this.buttonDelete.Size = new System.Drawing.Size(130, 61);
             this.buttonDelete.TabIndex = 19;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -214,7 +204,7 @@
             "Имиджевая",
             "Продуктовая",
             "Торговая"});
-            this.comboBoxType.Location = new System.Drawing.Point(12, 122);
+            this.comboBoxType.Location = new System.Drawing.Point(148, 155);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(148, 31);
             this.comboBoxType.TabIndex = 10;
@@ -225,9 +215,9 @@
             this.comboBoxUserWeb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUserWeb.Font = new System.Drawing.Font("Calibri", 14F);
             this.comboBoxUserWeb.FormattingEnabled = true;
-            this.comboBoxUserWeb.Location = new System.Drawing.Point(12, 186);
+            this.comboBoxUserWeb.Location = new System.Drawing.Point(302, 155);
             this.comboBoxUserWeb.Name = "comboBoxUserWeb";
-            this.comboBoxUserWeb.Size = new System.Drawing.Size(148, 31);
+            this.comboBoxUserWeb.Size = new System.Drawing.Size(195, 31);
             this.comboBoxUserWeb.TabIndex = 11;
             // 
             // comboBoxStatus
@@ -240,9 +230,9 @@
             "Запущен",
             "Приостановлен",
             "Отсутствует"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(12, 250);
+            this.comboBoxStatus.Location = new System.Drawing.Point(503, 155);
             this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(148, 31);
+            this.comboBoxStatus.Size = new System.Drawing.Size(173, 31);
             this.comboBoxStatus.TabIndex = 12;
             // 
             // comboBoxStrategy
@@ -256,9 +246,9 @@
             "Импульсное",
             "Сезонное",
             "Флайтовое"});
-            this.comboBoxStrategy.Location = new System.Drawing.Point(12, 314);
+            this.comboBoxStrategy.Location = new System.Drawing.Point(682, 155);
             this.comboBoxStrategy.Name = "comboBoxStrategy";
-            this.comboBoxStrategy.Size = new System.Drawing.Size(148, 31);
+            this.comboBoxStrategy.Size = new System.Drawing.Size(178, 31);
             this.comboBoxStrategy.TabIndex = 13;
             // 
             // comboBoxPlace
@@ -273,25 +263,25 @@
             "На сайте",
             "Преролл к видео",
             "Всплывающее окно"});
-            this.comboBoxPlace.Location = new System.Drawing.Point(12, 378);
+            this.comboBoxPlace.Location = new System.Drawing.Point(866, 155);
             this.comboBoxPlace.Name = "comboBoxPlace";
-            this.comboBoxPlace.Size = new System.Drawing.Size(148, 31);
+            this.comboBoxPlace.Size = new System.Drawing.Size(215, 31);
             this.comboBoxPlace.TabIndex = 15;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.textBox1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.textBox1.Location = new System.Drawing.Point(12, 442);
+            this.textBox1.Location = new System.Drawing.Point(1087, 155);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 31);
+            this.textBox1.Size = new System.Drawing.Size(149, 31);
             this.textBox1.TabIndex = 16;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 96);
+            this.label2.Location = new System.Drawing.Point(148, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(148, 27);
             this.label2.TabIndex = 20;
@@ -300,45 +290,45 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(12, 156);
+            this.label3.Location = new System.Drawing.Point(302, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 27);
+            this.label3.Size = new System.Drawing.Size(195, 27);
             this.label3.TabIndex = 21;
             this.label3.Text = "Вебсайт";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(12, 220);
+            this.label4.Location = new System.Drawing.Point(503, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 27);
+            this.label4.Size = new System.Drawing.Size(173, 27);
             this.label4.TabIndex = 22;
             this.label4.Text = "Статус";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(12, 284);
+            this.label5.Location = new System.Drawing.Point(682, 125);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 27);
+            this.label5.Size = new System.Drawing.Size(210, 27);
             this.label5.TabIndex = 23;
             this.label5.Text = "Стратегия";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(12, 348);
+            this.label6.Location = new System.Drawing.Point(898, 125);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 27);
+            this.label6.Size = new System.Drawing.Size(165, 27);
             this.label6.TabIndex = 24;
             this.label6.Text = "Места показов";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(12, 412);
+            this.label7.Location = new System.Drawing.Point(1069, 125);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 27);
+            this.label7.Size = new System.Drawing.Size(167, 27);
             this.label7.TabIndex = 25;
             this.label7.Text = "Расход";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -356,7 +346,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBoxPlace);
@@ -376,7 +365,7 @@
             this.Name = "FormAdvertisingCamp";
             this.Opacity = 0.95D;
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Рекламные кампании";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdvertisingCamp_FormClosed);
             this.ResumeLayout(false);
@@ -397,7 +386,6 @@
         private System.Windows.Forms.ColumnHeader Place;
         private System.Windows.Forms.ColumnHeader Consumption;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.ComboBox comboBoxUserWeb;
@@ -411,5 +399,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ColumnHeader NameClients;
     }
 }
