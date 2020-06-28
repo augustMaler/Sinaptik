@@ -25,9 +25,9 @@ namespace Sinaptik
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AdvComp> AdvComp { get; set; }
         public virtual DbSet<AdvertisingСompany> AdvertisingСompany { get; set; }
         public virtual DbSet<Autorization> Autorization { get; set; }
-        public virtual DbSet<BudgetAdv> BudgetAdv { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<PlaceForAdv> PlaceForAdv { get; set; }
         public virtual DbSet<StatusAdv> StatusAdv { get; set; }

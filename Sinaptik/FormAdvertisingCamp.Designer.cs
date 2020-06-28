@@ -148,7 +148,7 @@
             // 
             this.Place.Text = "Места показов";
             this.Place.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Place.Width = 180;
+            this.Place.Width = 231;
             // 
             // Consumption
             // 

@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище SinaptikModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdvComp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdvComp" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="AdvertisingСompany">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,6 +23,8 @@
           <Property Name="IdStrategy" Type="int" />
           <Property Name="IdPlace" Type="int" />
           <Property Name="Consumption" Type="int" />
+          <Property Name="Budget" Type="int" />
+          <Property Name="IdAdvComp" Type="int" />
         </EntityType>
         <EntityType Name="Autorization">
           <Key>
@@ -25,20 +34,11 @@
           <Property Name="Login" Type="nvarchar(max)" />
           <Property Name="Password" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="BudgetAdv">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" />
-          <Property Name="Budget" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdAdvComp" Type="int" />
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Surname" Type="nvarchar(max)" />
           <Property Name="Email" Type="nvarchar(max)" />
@@ -73,6 +73,18 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_AdvertisingСompany_AdvComp">
+          <End Role="AdvComp" Type="Self.AdvComp" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvComp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdAdvComp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AdvertisingСompany_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
@@ -133,39 +145,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BudgetAdv_Clients">
-          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Clients">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BudgetAdv">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Clients_AdvertisingСompany">
-          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="0..1" />
-          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AdvertisingСompany">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Clients">
-              <PropertyRef Name="IdAdvComp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Хранилище SinaptikModelContainer">
+          <EntitySet Name="AdvComp" EntityType="Self.AdvComp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AdvertisingСompany" EntityType="Self.AdvertisingСompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Autorization" EntityType="Self.Autorization" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BudgetAdv" EntityType="Self.BudgetAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaceForAdv" EntityType="Self.PlaceForAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusAdv" EntityType="Self.StatusAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StrategyAdv" EntityType="Self.StrategyAdv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeAdv" EntityType="Self.TypeAdv" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdvertisingСompany_AdvComp" Association="Self.FK_AdvertisingСompany_AdvComp">
+            <End Role="AdvComp" EntitySet="AdvComp" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
           <AssociationSet Name="FK_AdvertisingСompany_Clients" Association="Self.FK_AdvertisingСompany_Clients">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
@@ -186,20 +178,20 @@
             <End Role="TypeAdv" EntitySet="TypeAdv" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
           </AssociationSet>
-          <AssociationSet Name="FK_BudgetAdv_Clients" Association="Self.FK_BudgetAdv_Clients">
-            <End Role="Clients" EntitySet="Clients" />
-            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clients_AdvertisingСompany" Association="Self.FK_Clients_AdvertisingСompany">
-            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
-            <End Role="Clients" EntitySet="Clients" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SinaptikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdvComp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdvComp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_AdvComp" FromRole="AdvComp" ToRole="AdvertisingСompany" />
+        </EntityType>
         <EntityType Name="AdvertisingСompany">
           <Key>
             <PropertyRef Name="Id" />
@@ -211,12 +203,14 @@
           <Property Name="IdStrategy" Type="Int32" />
           <Property Name="IdPlace" Type="Int32" />
           <Property Name="Consumption" Type="Int32" />
+          <Property Name="Budget" Type="Int32" />
+          <Property Name="IdAdvComp" Type="Int32" />
+          <NavigationProperty Name="AdvComp" Relationship="Self.FK_AdvertisingСompany_AdvComp" FromRole="AdvertisingСompany" ToRole="AdvComp" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="AdvertisingСompany" ToRole="Clients" />
           <NavigationProperty Name="PlaceForAdv" Relationship="Self.FK_AdvertisingСompany_PlaceForAdv" FromRole="AdvertisingСompany" ToRole="PlaceForAdv" />
           <NavigationProperty Name="StatusAdv" Relationship="Self.FK_AdvertisingСompany_StatusAdv" FromRole="AdvertisingСompany" ToRole="StatusAdv" />
           <NavigationProperty Name="StrategyAdv" Relationship="Self.FK_AdvertisingСompany_StrategyAdv" FromRole="AdvertisingСompany" ToRole="StrategyAdv" />
           <NavigationProperty Name="TypeAdv" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="AdvertisingСompany" ToRole="TypeAdv" />
-          <NavigationProperty Name="Clients1" Relationship="Self.FK_Clients_AdvertisingСompany" FromRole="AdvertisingСompany" ToRole="Clients" />
         </EntityType>
         <EntityType Name="Autorization">
           <Key>
@@ -226,29 +220,17 @@
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="BudgetAdv">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" />
-          <Property Name="Budget" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Clients" Relationship="Self.FK_BudgetAdv_Clients" FromRole="BudgetAdv" ToRole="Clients" />
-        </EntityType>
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdAdvComp" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Websait" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_Clients" FromRole="Clients" ToRole="AdvertisingСompany" />
-          <NavigationProperty Name="AdvertisingСompany1" Relationship="Self.FK_Clients_AdvertisingСompany" FromRole="Clients" ToRole="AdvertisingСompany" />
-          <NavigationProperty Name="BudgetAdv" Relationship="Self.FK_BudgetAdv_Clients" FromRole="Clients" ToRole="BudgetAdv" />
         </EntityType>
         <EntityType Name="PlaceForAdv">
           <Key>
@@ -282,6 +264,18 @@
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AdvertisingСompany" Relationship="Self.FK_AdvertisingСompany_TypeAdv" FromRole="TypeAdv" ToRole="AdvertisingСompany" />
         </EntityType>
+        <Association Name="FK_AdvertisingСompany_AdvComp">
+          <End Role="AdvComp" Type="Self.AdvComp" Multiplicity="0..1" />
+          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvComp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertisingСompany">
+              <PropertyRef Name="IdAdvComp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AdvertisingСompany_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="*" />
@@ -342,39 +336,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Clients_AdvertisingСompany">
-          <End Role="AdvertisingСompany" Type="Self.AdvertisingСompany" Multiplicity="0..1" />
-          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AdvertisingСompany">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Clients">
-              <PropertyRef Name="IdAdvComp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BudgetAdv_Clients">
-          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-          <End Role="BudgetAdv" Type="Self.BudgetAdv" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Clients">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BudgetAdv">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SinaptikEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdvComp" EntityType="Self.AdvComp" />
           <EntitySet Name="AdvertisingСompany" EntityType="Self.AdvertisingСompany" />
           <EntitySet Name="Autorization" EntityType="Self.Autorization" />
-          <EntitySet Name="BudgetAdv" EntityType="Self.BudgetAdv" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
           <EntitySet Name="PlaceForAdv" EntityType="Self.PlaceForAdv" />
           <EntitySet Name="StatusAdv" EntityType="Self.StatusAdv" />
           <EntitySet Name="StrategyAdv" EntityType="Self.StrategyAdv" />
           <EntitySet Name="TypeAdv" EntityType="Self.TypeAdv" />
+          <AssociationSet Name="FK_AdvertisingСompany_AdvComp" Association="Self.FK_AdvertisingСompany_AdvComp">
+            <End Role="AdvComp" EntitySet="AdvComp" />
+            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
+          </AssociationSet>
           <AssociationSet Name="FK_AdvertisingСompany_Clients" Association="Self.FK_AdvertisingСompany_Clients">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
@@ -395,14 +369,6 @@
             <End Role="TypeAdv" EntitySet="TypeAdv" />
             <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
           </AssociationSet>
-          <AssociationSet Name="FK_Clients_AdvertisingСompany" Association="Self.FK_Clients_AdvertisingСompany">
-            <End Role="AdvertisingСompany" EntitySet="AdvertisingСompany" />
-            <End Role="Clients" EntitySet="Clients" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BudgetAdv_Clients" Association="Self.FK_BudgetAdv_Clients">
-            <End Role="Clients" EntitySet="Clients" />
-            <End Role="BudgetAdv" EntitySet="BudgetAdv" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -410,6 +376,14 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище SinaptikModelContainer" CdmEntityContainer="SinaptikEntities2">
+          <EntitySetMapping Name="AdvComp">
+            <EntityTypeMapping TypeName="SinaptikModel.AdvComp">
+              <MappingFragment StoreEntitySet="AdvComp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AdvComp1" ColumnName="AdvComp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AdvertisingСompany">
             <EntityTypeMapping TypeName="SinaptikModel.AdvertisingСompany">
               <MappingFragment StoreEntitySet="AdvertisingСompany">
@@ -420,6 +394,8 @@
                 <ScalarProperty Name="IdStrategy" ColumnName="IdStrategy" />
                 <ScalarProperty Name="IdPlace" ColumnName="IdPlace" />
                 <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="IdAdvComp" ColumnName="IdAdvComp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -432,20 +408,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BudgetAdv">
-            <EntityTypeMapping TypeName="SinaptikModel.BudgetAdv">
-              <MappingFragment StoreEntitySet="BudgetAdv">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Budget" ColumnName="Budget" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="SinaptikModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdAdvComp" ColumnName="IdAdvComp" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

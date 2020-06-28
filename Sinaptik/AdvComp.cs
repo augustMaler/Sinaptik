@@ -12,12 +12,18 @@ namespace Sinaptik
     using System;
     using System.Collections.Generic;
     
-    public partial class BudgetAdv
+    public partial class AdvComp
     {
-        public int Id { get; set; }
-        public Nullable<int> IdUser { get; set; }
-        public string Budget { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AdvComp()
+        {
+            this.AdvertisingСompany = new HashSet<AdvertisingСompany>();
+        }
     
-        public virtual Clients Clients { get; set; }
+        public int Id { get; set; }
+        public string AdvComp1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AdvertisingСompany> AdvertisingСompany { get; set; }
     }
 }

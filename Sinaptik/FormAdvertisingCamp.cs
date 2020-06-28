@@ -134,6 +134,7 @@ namespace Sinaptik
             advertisingСomp.IdStrategy = Convert.ToInt32(comboBoxStrategy.SelectedItem.ToString().Split('.')[0]);
             advertisingСomp.IdPlace = Convert.ToInt32(comboBoxPlace.SelectedItem.ToString().Split('.')[0]);
             advertisingСomp.Consumption = Convert.ToInt32(textBox1.Text);
+            advertisingСomp.Budget = 0;
             Program.sinDB.AdvertisingСompany.Add(advertisingСomp);
             Program.sinDB.SaveChanges();
             ShowListView();
@@ -149,7 +150,7 @@ namespace Sinaptik
         }
         public void Back()
         {
-            Form Menu = Application.OpenForms["FormMenu"];
+            FormMenu Menu = new FormMenu();
             this.Hide();
             Menu.Show();
         }
