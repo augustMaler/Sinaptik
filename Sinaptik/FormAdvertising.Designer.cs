@@ -118,7 +118,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Calibri", 14F);
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button5.Location = new System.Drawing.Point(515, 28);
+            this.button5.Location = new System.Drawing.Point(514, 28);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 70);
             this.button5.TabIndex = 15;
@@ -141,7 +141,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Calibri", 14F);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button6.Location = new System.Drawing.Point(515, 28);
+            this.button6.Location = new System.Drawing.Point(514, 28);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(139, 70);
             this.button6.TabIndex = 16;
@@ -183,7 +183,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Calibri", 14F);
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button4.Location = new System.Drawing.Point(515, 28);
+            this.button4.Location = new System.Drawing.Point(514, 28);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(140, 70);
             this.button4.TabIndex = 14;
