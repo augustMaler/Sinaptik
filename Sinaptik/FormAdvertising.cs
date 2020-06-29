@@ -16,8 +16,8 @@ namespace Sinaptik
         public FormAdvertising()
         {
             InitializeComponent();
-            label4.Text = $"Id Пользователя: {Personal.Id}" +
-                $"\nИмя: {Personal.Name} {Personal.Surname}";
+            label4.Text = $"Выберите систему рекламных кампаний" +
+                $"\nПользователя: {Personal.Name} {Personal.Surname}";
             if (Coloring.Back == 1) this.BackColor = Color.Black;
             if (Coloring.Back == 2) this.BackColor = Color.FromArgb(64, 64, 64);
             if (Coloring.Back == 3) this.BackColor = Color.White;
@@ -38,26 +38,14 @@ namespace Sinaptik
         }
         public void Back()
         {
-            FormMenu Menu = new FormMenu();
+            Form clients = new FormClients();
             this.Hide();
-            Menu.Show();
-        }
-        void buttonClient_Click(object sender, EventArgs e)
-        {
-            Form Clients = new FormClients();
-            Clients.StartPosition = FormStartPosition.Manual;
-            Clients.Left = this.Left;
-            Clients.Top = this.Top;
-            this.Hide();
-            Clients.Show();
+            clients.Show();
         }
         void button1_Click(object sender, EventArgs e)
         {
             Personal.System = 1;
             Form AdvCamp = new FormAdvertisingCamp();
-            AdvCamp.StartPosition = FormStartPosition.Manual;
-            AdvCamp.Left = this.Left;
-            AdvCamp.Top = this.Top;
             this.Hide();
             AdvCamp.Show();
         }
@@ -65,9 +53,6 @@ namespace Sinaptik
         {
             Personal.System = 2;
             Form AdvCamp = new FormAdvertisingCamp();
-            AdvCamp.StartPosition = FormStartPosition.Manual;
-            AdvCamp.Left = this.Left;
-            AdvCamp.Top = this.Top;
             this.Hide();
             AdvCamp.Show();
         }
@@ -75,9 +60,6 @@ namespace Sinaptik
         {
             Personal.System = 3;
             Form AdvCamp = new FormAdvertisingCamp();
-            AdvCamp.StartPosition = FormStartPosition.Manual;
-            AdvCamp.Left = this.Left;
-            AdvCamp.Top = this.Top;
             this.Hide();
             AdvCamp.Show();
         }

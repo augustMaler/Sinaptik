@@ -47,6 +47,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -258,6 +258,14 @@
             this.panel3.Size = new System.Drawing.Size(283, 207);
             this.panel3.TabIndex = 22;
             // 
+            // label9
+            // 
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label9.Location = new System.Drawing.Point(4, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(275, 24);
+            this.label9.TabIndex = 23;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -337,14 +345,6 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Сумма пополнения:";
             // 
-            // label9
-            // 
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label9.Location = new System.Drawing.Point(4, 91);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(275, 24);
-            this.label9.TabIndex = 23;
-            // 
             // FormPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -365,7 +365,7 @@
             this.Name = "FormPay";
             this.Opacity = 0.95D;
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Оплата";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPay_FormClosed);
             this.panel1.ResumeLayout(false);

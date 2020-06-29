@@ -166,9 +166,9 @@ namespace Sinaptik
         }
         public void Back()
         {
-            FormMenu Menu = new FormMenu();
+            Form Adv = new FormAdvertising();
             this.Hide();
-            Menu.Show();
+            Adv.Show();
         }
         private void FormAdvertisingCamp_FormClosed(object sender, FormClosedEventArgs e)
         {

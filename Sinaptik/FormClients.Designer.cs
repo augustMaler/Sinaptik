@@ -337,7 +337,7 @@
             this.Name = "FormClients";
             this.Opacity = 0.95D;
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Клинеты";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClients_FormClosed);
             this.ResumeLayout(false);
