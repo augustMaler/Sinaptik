@@ -102,13 +102,13 @@ namespace Sinaptik
         {
             if (comboBox1.SelectedIndex.ToString() == "0")
             {
-                AdvSys.Google = 0;
                 button1.Enabled = true;
+                AdvSys.Google = 0;
             }
             if (comboBox1.SelectedIndex.ToString() == "1")
             {
-                AdvSys.Google = 1;
                 button1.Enabled = false;
+                AdvSys.Google = 1;
             }
         }
 
